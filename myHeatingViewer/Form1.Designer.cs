@@ -35,24 +35,24 @@ namespace myHeatingViewer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btn_close = new System.Windows.Forms.Button();
-            this.clbYears = new System.Windows.Forms.CheckedListBox();
-            this.clbMonths = new System.Windows.Forms.CheckedListBox();
-            this.clbDays = new System.Windows.Forms.CheckedListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.chartMain = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.clbData = new System.Windows.Forms.CheckedListBox();
-            this.btnDrawChart = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnLoadData = new System.Windows.Forms.Button();
+            this.btnDrawChart = new System.Windows.Forms.Button();
+            this.clbData = new System.Windows.Forms.CheckedListBox();
+            this.btn_close = new System.Windows.Forms.Button();
+            this.lstYears = new System.Windows.Forms.ListBox();
+            this.lstMonths = new System.Windows.Forms.ListBox();
+            this.lstDays = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMain)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -80,58 +80,6 @@ namespace myHeatingViewer
             this.panel1.Size = new System.Drawing.Size(1446, 484);
             this.panel1.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnLoadData);
-            this.panel3.Controls.Add(this.btnDrawChart);
-            this.panel3.Controls.Add(this.clbData);
-            this.panel3.Controls.Add(this.btn_close);
-            this.panel3.Controls.Add(this.clbYears);
-            this.panel3.Controls.Add(this.clbDays);
-            this.panel3.Controls.Add(this.clbMonths);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 493);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1446, 194);
-            this.panel3.TabIndex = 2;
-            // 
-            // btn_close
-            // 
-            this.btn_close.Location = new System.Drawing.Point(1306, 126);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(131, 59);
-            this.btn_close.TabIndex = 0;
-            this.btn_close.Text = "Close";
-            this.btn_close.UseVisualStyleBackColor = true;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-            // 
-            // clbYears
-            // 
-            this.clbYears.CheckOnClick = true;
-            this.clbYears.FormattingEnabled = true;
-            this.clbYears.Location = new System.Drawing.Point(3, 3);
-            this.clbYears.Name = "clbYears";
-            this.clbYears.Size = new System.Drawing.Size(173, 165);
-            this.clbYears.TabIndex = 10;
-            // 
-            // clbMonths
-            // 
-            this.clbMonths.CheckOnClick = true;
-            this.clbMonths.FormattingEnabled = true;
-            this.clbMonths.Location = new System.Drawing.Point(222, 3);
-            this.clbMonths.Name = "clbMonths";
-            this.clbMonths.Size = new System.Drawing.Size(173, 165);
-            this.clbMonths.TabIndex = 11;
-            // 
-            // clbDays
-            // 
-            this.clbDays.CheckOnClick = true;
-            this.clbDays.FormattingEnabled = true;
-            this.clbDays.Location = new System.Drawing.Point(448, 3);
-            this.clbDays.Name = "clbDays";
-            this.clbDays.Size = new System.Drawing.Size(173, 165);
-            this.clbDays.TabIndex = 12;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -154,16 +102,6 @@ namespace myHeatingViewer
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(885, 306);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // chartMain
             // 
             chartArea1.Name = "ChartArea1";
@@ -181,14 +119,40 @@ namespace myHeatingViewer
             this.chartMain.TabIndex = 0;
             this.chartMain.Text = "chart1";
             // 
-            // clbData
+            // tabPage2
             // 
-            this.clbData.CheckOnClick = true;
-            this.clbData.FormattingEnabled = true;
-            this.clbData.Location = new System.Drawing.Point(655, 3);
-            this.clbData.Name = "clbData";
-            this.clbData.Size = new System.Drawing.Size(173, 165);
-            this.clbData.TabIndex = 13;
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1438, 451);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lstDays);
+            this.panel3.Controls.Add(this.lstMonths);
+            this.panel3.Controls.Add(this.lstYears);
+            this.panel3.Controls.Add(this.btnLoadData);
+            this.panel3.Controls.Add(this.btnDrawChart);
+            this.panel3.Controls.Add(this.clbData);
+            this.panel3.Controls.Add(this.btn_close);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 493);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1446, 194);
+            this.panel3.TabIndex = 2;
+            // 
+            // btnLoadData
+            // 
+            this.btnLoadData.Location = new System.Drawing.Point(900, 29);
+            this.btnLoadData.Name = "btnLoadData";
+            this.btnLoadData.Size = new System.Drawing.Size(135, 56);
+            this.btnLoadData.TabIndex = 15;
+            this.btnLoadData.Text = "Load Data";
+            this.btnLoadData.UseVisualStyleBackColor = true;
+            this.btnLoadData.Click += new System.EventHandler(this.btnLoadData_Click);
             // 
             // btnDrawChart
             // 
@@ -200,15 +164,54 @@ namespace myHeatingViewer
             this.btnDrawChart.UseVisualStyleBackColor = true;
             this.btnDrawChart.Click += new System.EventHandler(this.btnDrawChart_Click);
             // 
-            // btnLoadData
+            // clbData
             // 
-            this.btnLoadData.Location = new System.Drawing.Point(900, 29);
-            this.btnLoadData.Name = "btnLoadData";
-            this.btnLoadData.Size = new System.Drawing.Size(135, 56);
-            this.btnLoadData.TabIndex = 15;
-            this.btnLoadData.Text = "Load Data";
-            this.btnLoadData.UseVisualStyleBackColor = true;
-            this.btnLoadData.Click += new System.EventHandler(this.btnLoadData_Click);
+            this.clbData.CheckOnClick = true;
+            this.clbData.FormattingEnabled = true;
+            this.clbData.Location = new System.Drawing.Point(655, 3);
+            this.clbData.Name = "clbData";
+            this.clbData.Size = new System.Drawing.Size(173, 165);
+            this.clbData.TabIndex = 13;
+            // 
+            // btn_close
+            // 
+            this.btn_close.Location = new System.Drawing.Point(1306, 126);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(131, 59);
+            this.btn_close.TabIndex = 0;
+            this.btn_close.Text = "Close";
+            this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            // 
+            // lstYears
+            // 
+            this.lstYears.FormattingEnabled = true;
+            this.lstYears.ItemHeight = 20;
+            this.lstYears.Location = new System.Drawing.Point(13, 9);
+            this.lstYears.Name = "lstYears";
+            this.lstYears.Size = new System.Drawing.Size(177, 164);
+            this.lstYears.TabIndex = 16;
+            this.lstYears.SelectedIndexChanged += new System.EventHandler(this.lstYears_SelectedIndexChanged);
+            // 
+            // lstMonths
+            // 
+            this.lstMonths.FormattingEnabled = true;
+            this.lstMonths.ItemHeight = 20;
+            this.lstMonths.Location = new System.Drawing.Point(214, 12);
+            this.lstMonths.Name = "lstMonths";
+            this.lstMonths.Size = new System.Drawing.Size(180, 164);
+            this.lstMonths.TabIndex = 17;
+            this.lstMonths.SelectedIndexChanged += new System.EventHandler(this.lstMonths_SelectedIndexChanged);
+            // 
+            // lstDays
+            // 
+            this.lstDays.FormattingEnabled = true;
+            this.lstDays.ItemHeight = 20;
+            this.lstDays.Location = new System.Drawing.Point(433, 14);
+            this.lstDays.Name = "lstDays";
+            this.lstDays.Size = new System.Drawing.Size(182, 164);
+            this.lstDays.TabIndex = 18;
+            this.lstDays.SelectedIndexChanged += new System.EventHandler(this.lstDays_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -222,10 +225,10 @@ namespace myHeatingViewer
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartMain)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -236,9 +239,6 @@ namespace myHeatingViewer
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_close;
-        private System.Windows.Forms.CheckedListBox clbDays;
-        private System.Windows.Forms.CheckedListBox clbMonths;
-        private System.Windows.Forms.CheckedListBox clbYears;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartMain;
@@ -246,6 +246,9 @@ namespace myHeatingViewer
         private System.Windows.Forms.Button btnLoadData;
         private System.Windows.Forms.Button btnDrawChart;
         private System.Windows.Forms.CheckedListBox clbData;
+        private System.Windows.Forms.ListBox lstYears;
+        private System.Windows.Forms.ListBox lstMonths;
+        private System.Windows.Forms.ListBox lstDays;
     }
 }
 
