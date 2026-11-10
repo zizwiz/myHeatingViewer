@@ -16,5 +16,20 @@ namespace myHeatingViewer
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
         }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnLoadData_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDrawChart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
