@@ -1,6 +1,4 @@
 ﻿using myHeatingViewer.Models;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -24,8 +22,6 @@ namespace myHeatingViewer.Services
         public void ConfigureChart(
             Chart chart)
         {
-            chart.Series.Clear();
-
             ChartArea area;
 
             if (chart.ChartAreas.Count == 0)
@@ -40,24 +36,19 @@ namespace myHeatingViewer.Services
 
             area.AxisX.LabelStyle.Format = "HH:mm";
 
-            area.AxisX.IntervalAutoMode =
-                IntervalAutoMode.VariableCount;
+            area.AxisX.IsMarginVisible = false;
 
             area.AxisX.MajorGrid.LineColor =
                 Color.LightGray;
 
-            area.AxisX.IsMarginVisible = false;
+            area.AxisY.Minimum =
+                _context.YAxisMinimum;
 
-            area.AxisY.Minimum = 0;
-            area.AxisY.Maximum = 60;
+            area.AxisY.Maximum =
+                _context.YAxisMaximum;
 
             area.AxisY.MajorGrid.LineColor =
                 Color.LightGray;
-
-            chart.Legends.Clear();
-
-            chart.Legends.Add(
-                new Legend("Default"));
         }
 
         #endregion
@@ -74,41 +65,6 @@ namespace myHeatingViewer.Services
 
         #region Draw
 
-        //public void DrawSeries(
-        //    Chart chart,
-        //    string dataRoot,
-        //    DateTime selectedDate,
-        //    string dataset)
-        //{
-        //    switch (dataset)
-        //    {
-        //        case "Electricity":
-        //            DrawElectricity(
-        //                chart,
-        //                dataRoot,
-        //                selectedDate);
-        //            break;
-
-        //        case "Gallery":
-        //        case "Middle":
-        //        case "Outside":
-        //        case "Sanctuary":
-        //        case "Thermostat":
-        //            DrawTemperature(
-        //                chart,
-        //                dataRoot,
-        //                selectedDate,
-        //                dataset);
-        //            break;
-
-        //        case "Heatmiser":
-        //            DrawHeatmiser(
-        //                chart,
-        //                dataRoot,
-        //                selectedDate);
-        //            break;
-        //    }
-        //}
 
         public void DrawSeries(
             Chart chart,
@@ -146,11 +102,6 @@ namespace myHeatingViewer.Services
 
         #region Electricity
 
-        //private void DrawElectricity(
-        //    Chart chart,
-        //    string dataRoot,
-        //    DateTime date)
-        //{
 
         private void DrawElectricity(
             Chart chart)
@@ -159,11 +110,6 @@ namespace myHeatingViewer.Services
                 _csvService.GetElectricityForDay(
                     _context.DataRoot,
                     _context.SelectedDate);
-
-            //List<ElectricityRecord> records =
-            //    _csvService.GetElectricityForDay(
-            //        dataRoot,
-            //        date);
 
             Series series =
                 CreateSeries(
@@ -184,17 +130,7 @@ namespace myHeatingViewer.Services
 
         #region Temperature
 
-        //private void DrawTemperature(
-        //    Chart chart,
-        //    string dataRoot,
-        //    DateTime date,
-        //    string sensor)
-        //{
-        //    List<TemperatureRecord> records =
-        //        _csvService.GetTemperatureForDay(
-        //            dataRoot,
-        //            date,
-        //            sensor);
+        
         private void DrawTemperature(
             Chart chart,
             string sensor)
@@ -224,15 +160,6 @@ namespace myHeatingViewer.Services
 
         #region Heatmiser
 
-        //private void DrawHeatmiser(
-        //    Chart chart,
-        //    string dataRoot,
-        //    DateTime date)
-        //{
-        //    List<HeatmiserRecord> records =
-        //        _csvService.GetHeatmiserForDay(
-        //            dataRoot,
-        //            date);
 
         private void DrawHeatmiser(
             Chart chart)

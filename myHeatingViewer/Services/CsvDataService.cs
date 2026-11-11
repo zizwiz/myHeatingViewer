@@ -162,7 +162,7 @@ namespace myHeatingViewer.Services
             string heatmiserFile =
                 Path.Combine(
                     folder,
-                    "heatmiser.csv");
+                    "Heatmiser.csv");
 
             if (File.Exists(heatmiserFile))
             {
@@ -224,7 +224,7 @@ namespace myHeatingViewer.Services
                     result.Add(sensor.Key);
                 }
             }
-
+            
             if (data.Heatmiser.Any(
                 x => x.Timestamp.Date == day.Date))
             {
@@ -396,12 +396,18 @@ namespace myHeatingViewer.Services
 
                 DateTime timestamp;
 
-                if (!DateTime.TryParseExact(
-                    parts[0] + " " + parts[1],
+                string[] formats =
+                {
                     "dd/MM/yyyy HH:mm:ss",
-                    CultureInfo.InvariantCulture,
-                    DateTimeStyles.None,
-                    out timestamp))
+                    "MM/dd/yyyy HH:mm:ss"
+                };
+
+                if (!DateTime.TryParseExact(
+                        parts[0] + " " + parts[1],
+                        formats,
+                        CultureInfo.InvariantCulture,
+                        DateTimeStyles.None,
+                        out timestamp))
                 {
                     continue;
                 }

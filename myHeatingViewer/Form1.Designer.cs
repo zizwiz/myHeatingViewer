@@ -39,29 +39,29 @@ namespace myHeatingViewer
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.chartMain = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtbx_YAxis_max = new System.Windows.Forms.TextBox();
+            this.txtbx_YAxis_min = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lstDays = new System.Windows.Forms.ListBox();
+            this.lstMonths = new System.Windows.Forms.ListBox();
+            this.lstYears = new System.Windows.Forms.ListBox();
             this.btnLoadData = new System.Windows.Forms.Button();
             this.btnDrawChart = new System.Windows.Forms.Button();
             this.clbData = new System.Windows.Forms.CheckedListBox();
             this.btn_close = new System.Windows.Forms.Button();
-            this.lstYears = new System.Windows.Forms.ListBox();
-            this.lstMonths = new System.Windows.Forms.ListBox();
-            this.lstDays = new System.Windows.Forms.ListBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtbx_YAxis_min = new System.Windows.Forms.TextBox();
-            this.txtbx_YAxis_max = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMain)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -139,6 +139,64 @@ namespace myHeatingViewer
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1432, 445);
+            this.panel2.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtbx_YAxis_max);
+            this.groupBox1.Controls.Add(this.txtbx_YAxis_min);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(28, 15);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(179, 111);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Chart Y-Axis";
+            // 
+            // txtbx_YAxis_max
+            // 
+            this.txtbx_YAxis_max.Location = new System.Drawing.Point(75, 68);
+            this.txtbx_YAxis_max.Name = "txtbx_YAxis_max";
+            this.txtbx_YAxis_max.Size = new System.Drawing.Size(68, 26);
+            this.txtbx_YAxis_max.TabIndex = 3;
+            this.txtbx_YAxis_max.Text = "60";
+            this.txtbx_YAxis_max.Leave += new System.EventHandler(this.YAxis_Leave);
+            // 
+            // txtbx_YAxis_min
+            // 
+            this.txtbx_YAxis_min.Location = new System.Drawing.Point(75, 33);
+            this.txtbx_YAxis_min.Name = "txtbx_YAxis_min";
+            this.txtbx_YAxis_min.Size = new System.Drawing.Size(68, 26);
+            this.txtbx_YAxis_min.TabIndex = 2;
+            this.txtbx_YAxis_min.Text = "0";
+            this.txtbx_YAxis_min.Leave += new System.EventHandler(this.YAxis_Leave);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Max:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Min:";
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.lstDays);
@@ -153,6 +211,36 @@ namespace myHeatingViewer
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1446, 194);
             this.panel3.TabIndex = 2;
+            // 
+            // lstDays
+            // 
+            this.lstDays.FormattingEnabled = true;
+            this.lstDays.ItemHeight = 20;
+            this.lstDays.Location = new System.Drawing.Point(433, 14);
+            this.lstDays.Name = "lstDays";
+            this.lstDays.Size = new System.Drawing.Size(182, 164);
+            this.lstDays.TabIndex = 18;
+            this.lstDays.SelectedIndexChanged += new System.EventHandler(this.lstDays_SelectedIndexChanged);
+            // 
+            // lstMonths
+            // 
+            this.lstMonths.FormattingEnabled = true;
+            this.lstMonths.ItemHeight = 20;
+            this.lstMonths.Location = new System.Drawing.Point(214, 12);
+            this.lstMonths.Name = "lstMonths";
+            this.lstMonths.Size = new System.Drawing.Size(180, 164);
+            this.lstMonths.TabIndex = 17;
+            this.lstMonths.SelectedIndexChanged += new System.EventHandler(this.lstMonths_SelectedIndexChanged);
+            // 
+            // lstYears
+            // 
+            this.lstYears.FormattingEnabled = true;
+            this.lstYears.ItemHeight = 20;
+            this.lstYears.Location = new System.Drawing.Point(13, 9);
+            this.lstYears.Name = "lstYears";
+            this.lstYears.Size = new System.Drawing.Size(177, 164);
+            this.lstYears.TabIndex = 16;
+            this.lstYears.SelectedIndexChanged += new System.EventHandler(this.lstYears_SelectedIndexChanged);
             // 
             // btnLoadData
             // 
@@ -193,92 +281,6 @@ namespace myHeatingViewer
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // lstYears
-            // 
-            this.lstYears.FormattingEnabled = true;
-            this.lstYears.ItemHeight = 20;
-            this.lstYears.Location = new System.Drawing.Point(13, 9);
-            this.lstYears.Name = "lstYears";
-            this.lstYears.Size = new System.Drawing.Size(177, 164);
-            this.lstYears.TabIndex = 16;
-            this.lstYears.SelectedIndexChanged += new System.EventHandler(this.lstYears_SelectedIndexChanged);
-            // 
-            // lstMonths
-            // 
-            this.lstMonths.FormattingEnabled = true;
-            this.lstMonths.ItemHeight = 20;
-            this.lstMonths.Location = new System.Drawing.Point(214, 12);
-            this.lstMonths.Name = "lstMonths";
-            this.lstMonths.Size = new System.Drawing.Size(180, 164);
-            this.lstMonths.TabIndex = 17;
-            this.lstMonths.SelectedIndexChanged += new System.EventHandler(this.lstMonths_SelectedIndexChanged);
-            // 
-            // lstDays
-            // 
-            this.lstDays.FormattingEnabled = true;
-            this.lstDays.ItemHeight = 20;
-            this.lstDays.Location = new System.Drawing.Point(433, 14);
-            this.lstDays.Name = "lstDays";
-            this.lstDays.Size = new System.Drawing.Size(182, 164);
-            this.lstDays.TabIndex = 18;
-            this.lstDays.SelectedIndexChanged += new System.EventHandler(this.lstDays_SelectedIndexChanged);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1432, 445);
-            this.panel2.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Min:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Max:";
-            // 
-            // txtbx_YAxis_min
-            // 
-            this.txtbx_YAxis_min.Location = new System.Drawing.Point(75, 33);
-            this.txtbx_YAxis_min.Name = "txtbx_YAxis_min";
-            this.txtbx_YAxis_min.Size = new System.Drawing.Size(68, 26);
-            this.txtbx_YAxis_min.TabIndex = 2;
-            this.txtbx_YAxis_min.Text = "0";
-            // 
-            // txtbx_YAxis_max
-            // 
-            this.txtbx_YAxis_max.Location = new System.Drawing.Point(75, 68);
-            this.txtbx_YAxis_max.Name = "txtbx_YAxis_max";
-            this.txtbx_YAxis_max.Size = new System.Drawing.Size(68, 26);
-            this.txtbx_YAxis_max.TabIndex = 3;
-            this.txtbx_YAxis_max.Text = "60";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtbx_YAxis_max);
-            this.groupBox1.Controls.Add(this.txtbx_YAxis_min);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(28, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(179, 111);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chart Y-Axis";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -295,10 +297,10 @@ namespace myHeatingViewer
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartMain)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
