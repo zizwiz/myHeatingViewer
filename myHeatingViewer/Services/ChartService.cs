@@ -1,4 +1,5 @@
-﻿using myHeatingViewer.Models;
+﻿using System.Collections.Generic;
+using myHeatingViewer.Models;
 using System.Drawing;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -164,12 +165,12 @@ namespace myHeatingViewer.Services
         private void DrawHeatmiser(
             Chart chart)
         {
-            var records =
+            List<HeatmiserRecord> records =
                 _csvService.GetHeatmiserForDay(
                     _context.DataRoot,
                     _context.SelectedDate);
 
-        Series setTemp =
+            Series setTemp =
                 CreateSeries(
                     "Set Temp",
                     Color.Black);
@@ -178,6 +179,18 @@ namespace myHeatingViewer.Services
                 CreateSeries(
                     "Actual Temp",
                     Color.DarkGreen);
+
+            Series churchSensor =
+                CreateSeries(
+                    "Church Sensor",
+                    Color.DarkOrange);
+
+            Series state =
+                CreateSeries(
+                    "State",
+                    Color.Blue);
+
+            state.BorderWidth = 1;
 
             foreach (HeatmiserRecord record in records)
             {
@@ -191,11 +204,25 @@ namespace myHeatingViewer.Services
                 actualTemp.Points.AddXY(
                     x,
                     record.ActualTemperature);
+
+                churchSensor.Points.AddXY(
+                    x,
+                    record.ChurchSensor);
+
+                state.Points.AddXY(
+                    x,
+                    record.State);
             }
 
             chart.Series.Add(setTemp);
+
             chart.Series.Add(actualTemp);
+
+            chart.Series.Add(churchSensor);
+
+            chart.Series.Add(state);
         }
+
 
         #endregion
 
