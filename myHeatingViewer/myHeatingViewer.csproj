@@ -66,6 +66,7 @@
     <Compile Include="Services\CachedMonth.cs" />
     <Compile Include="Services\ChartService.cs" />
     <Compile Include="Services\CsvDataService.cs" />
+    <Compile Include="Services\DataContext.cs" />
     <Compile Include="Services\FolderService.cs" />
     <Compile Include="Services\MonthData.cs" />
     <Compile Include="Services\TimeService.cs" />

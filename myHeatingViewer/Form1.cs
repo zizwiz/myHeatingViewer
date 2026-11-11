@@ -17,18 +17,30 @@ namespace myHeatingViewer
         private CsvDataService _csvService;
         private ChartService _chartService;
 
-        private string _dataRoot = "";
+        private readonly DataContext _context;
+
+      //  private string _dataRoot = "";
 
         public Form1()
         {
             InitializeComponent();
 
-            _folderService = new FolderService();
-            _csvService = new CsvDataService();
-            _chartService = new ChartService();
+            _context = new DataContext();
 
-            // _chartService.ConfigureChart(chartMain);
-            SetupChart();
+            _folderService = new FolderService();
+
+            _csvService = new CsvDataService();
+
+            _chartService =
+                new ChartService(
+                    _csvService,
+                    _context);
+
+            //_chartService =
+            //    new ChartService(_csvService);
+
+            _chartService.ConfigureChart(chartMain);
+           // SetupChart();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -44,24 +56,24 @@ namespace myHeatingViewer
         }
 
 
-        #region Setup
+        //#region Setup
 
-        private void SetupChart()
-        {
-            chartMain.Series.Clear();
+        //private void SetupChart()
+        //{
+        //    chartMain.Series.Clear();
 
-            ChartArea area = chartMain.ChartAreas[0];
+        //    ChartArea area = chartMain.ChartAreas[0];
 
-            area.AxisX.LabelStyle.Format = "HH:mm";
-            area.AxisX.IntervalType = DateTimeIntervalType.Hours;
-            area.AxisX.MajorGrid.LineColor = Color.LightGray;
+        //    area.AxisX.LabelStyle.Format = "HH:mm";
+        //    area.AxisX.IntervalType = DateTimeIntervalType.Hours;
+        //    area.AxisX.MajorGrid.LineColor = Color.LightGray;
 
-            area.AxisY.Minimum = 0;
-            area.AxisY.Maximum = 40;
-            area.AxisY.MajorGrid.LineColor = Color.LightGray;
-        }
+        //    area.AxisY.Minimum = int.Parse(txtbx_YAxis_min.Text);
+        //    area.AxisY.Maximum = int.Parse(txtbx_YAxis_max.Text);
+        //    area.AxisY.MajorGrid.LineColor = Color.LightGray;
+        //}
 
-        #endregion
+        //#endregion
 
         #region Load Data Button
 
@@ -78,7 +90,10 @@ namespace myHeatingViewer
                 if (dlg.ShowDialog() != DialogResult.OK)
                     return;
 
-                _dataRoot = dlg.SelectedPath;
+                _context.DataRoot = dlg.SelectedPath;
+
+                _csvService.ClearCache();
+
             }
 
             LoadYears();
@@ -93,8 +108,11 @@ namespace myHeatingViewer
 
             clbData.Items.Clear();
 
+            //var years =
+            //    _folderService.GetYears(_dataRoot);
+
             var years =
-                _folderService.GetYears(_dataRoot);
+                _folderService.GetYears(_context.DataRoot);
 
             lstYears.Items.AddRange(
                 years.ToArray());
@@ -125,7 +143,7 @@ namespace myHeatingViewer
 
             var months =
                 _folderService.GetMonths(
-                    _dataRoot,
+                    _context.DataRoot,
                     year);
 
             lstMonths.Items.AddRange(
@@ -157,7 +175,7 @@ namespace myHeatingViewer
 
             List<int> days =
                 _csvService.GetAvailableDays(
-                    _dataRoot,
+                    _context.DataRoot,
                     year,
                     month);
 
@@ -228,23 +246,43 @@ namespace myHeatingViewer
             object sender,
             EventArgs e)
         {
-            if (clbData.CheckedItems.Count == 0)
-                return;
+            _chartService.Clear(
+                chartMain);
 
-            DateTime selectedDate =
-                GetSelectedDate();
-
-            _chartService.Clear(chartMain);
-
-            foreach (string dataset in clbData.CheckedItems)
+            foreach (string dataset
+                     in clbData.CheckedItems)
             {
                 _chartService.DrawSeries(
                     chartMain,
-                    _dataRoot,
-                    selectedDate,
                     dataset);
             }
         }
+
+        //private void btnDrawChart_Click(
+        //    object sender,
+        //    EventArgs e)
+        //{
+        //    if (clbData.CheckedItems.Count == 0)
+        //        return;
+
+        //    DateTime selectedDate =
+        //        GetSelectedDate();
+
+        //    _chartService.Clear(chartMain);
+
+        //    foreach (string dataset in clbData.CheckedItems)
+        //    {
+        //        _chartService.DrawSeries(
+        //            chartMain,
+        //            dataset);
+
+        //        //_chartService.DrawSeries(
+        //        //    chartMain,
+        //        //    _dataRoot,
+        //        //    selectedDate,
+        //        //    dataset);
+        //    }
+        //}
 
         #endregion
 
@@ -533,26 +571,42 @@ namespace myHeatingViewer
 
         #endregion
 
-        private void lstYears_SelectedIndexChanged(object sender, EventArgs e)
+        private void lstYears_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
         {
             if (lstYears.SelectedItem == null)
                 return;
 
+            _context.CurrentYear =
+                lstYears.SelectedItem.ToString();
+
             LoadMonths();
         }
 
-        private void lstMonths_SelectedIndexChanged(object sender, EventArgs e)
+        private void lstMonths_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
         {
             if (lstMonths.SelectedItem == null)
                 return;
 
+            _context.CurrentMonth =
+                lstMonths.SelectedItem.ToString();
+
             LoadDays();
         }
 
-        private void lstDays_SelectedIndexChanged(object sender, EventArgs e)
+        private void lstDays_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
         {
             if (lstDays.SelectedItem == null)
                 return;
+
+            _context.CurrentDay =
+                Convert.ToInt32(
+                    lstDays.SelectedItem);
 
             LoadDatasets();
         }
@@ -565,9 +619,13 @@ namespace myHeatingViewer
                 GetSelectedDate();
 
             List<string> datasets =
+                //_csvService.GetAvailableDataSets(
+                //    _dataRoot,
+                //    selectedDate);
+
                 _csvService.GetAvailableDataSets(
-                    _dataRoot,
-                    selectedDate);
+                    _context.DataRoot,
+                    _context.SelectedDate);
 
             foreach (string dataset in datasets)
             {
