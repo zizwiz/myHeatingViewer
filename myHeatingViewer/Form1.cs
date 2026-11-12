@@ -33,7 +33,7 @@ namespace myHeatingViewer
                     _context);
 
             _chartService.ConfigureChart(chartMain);
-          
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace myHeatingViewer
             btnHeatmiserStateColour.BackColor = _context.StateColour;
             btnHeatmisetSetTempColour.BackColor = _context.SetTempColour;
         }
-        
+
         private void btn_close_Click(object sender, EventArgs e)
         {
             Close();
@@ -155,8 +155,13 @@ namespace myHeatingViewer
 
 
         #region Draw Chart
-        
+
         private void btnDrawChart_Click(object sender, EventArgs e)
+        {
+            DrawChart();
+        }
+
+        private void DrawChart()
         {
             UpdateChartSettings();
 
@@ -318,38 +323,50 @@ namespace myHeatingViewer
             {
                 case "Electricity":
                     btnElectricityColour.BackColor = _context.ElectricityColour = PickColour(_context.ElectricityColour);
+                    DrawChart(); 
                     break;
                 case "Gallery":
                     btnGalleryColour.BackColor = _context.GalleryColour = PickColour(_context.GalleryColour);
+                    DrawChart();
                     break;
                 case "Middle":
                     btnMiddleColour.BackColor = _context.MiddleColour = PickColour(_context.MiddleColour);
+                    DrawChart();
                     break;
                 case "Thermostat":
                     btnThermostatColour.BackColor = _context.ThermostatColour = PickColour(_context.ThermostatColour);
+                    DrawChart();
                     break;
                 case "Outside":
                     btnOutsideColour.BackColor = _context.OutsideColour = PickColour(_context.OutsideColour);
+                    DrawChart();
                     break;
                 case "Sanctuary":
                     btnSanctuaryColour.BackColor = _context.SanctuaryColour = PickColour(_context.SanctuaryColour);
+                    DrawChart();
                     break;
                 case "Set Temperature":
                     btnHeatmisetSetTempColour.BackColor = _context.SetTempColour = PickColour(_context.SetTempColour);
+                    DrawChart();
                     break;
                 case "Actual Temperature":
                     btnHeatmiserActualTempColour.BackColor = _context.ActualTempColour = PickColour(_context.ActualTempColour);
+                    DrawChart();
                     break;
                 case "Church Sensor":
                     btnHeatmiserChurchSensorColour.BackColor = _context.ChurchSensorColour = PickColour(_context.ChurchSensorColour);
+                    DrawChart();
                     break;
                 case "Heating State":
                     btnHeatmiserStateColour.BackColor = _context.StateColour = PickColour(_context.StateColour);
+                    DrawChart();
                     break;
                 default:
                     MessageBox.Show("Errror: Unknown button pressed", "Error", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
-                        break;
+                    break;
+
+                
 
             }
         }

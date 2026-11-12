@@ -248,31 +248,6 @@ namespace myHeatingViewer.Services
             return s;
         }
 
-        //private Color GetColour(
-        //    string sensor)
-        //{
-        //    switch (sensor)
-        //    {
-        //        case "Gallery":
-        //            return Color.Green;
-
-        //        case "Middle":
-        //            return Color.Orange;
-
-        //        case "Outside":
-        //            return Color.Blue;
-
-        //        case "Sanctuary":
-        //            return Color.Purple;
-
-        //        case "Thermostat":
-        //            return Color.Brown;
-
-        //        default:
-        //            return Color.Black;
-        //    }
-        //}
-
         #endregion
     }
 }
