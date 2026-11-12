@@ -172,22 +172,22 @@ namespace myHeatingViewer.Services
 
             Series setTemp =
                 CreateSeries(
-                    "Set Temp",
+                    "H_Set Temp",
                     Color.Black);
 
             Series actualTemp =
                 CreateSeries(
-                    "Actual Temp",
+                    "H_Actual Temp",
                     Color.DarkGreen);
 
             Series churchSensor =
                 CreateSeries(
-                    "Church Sensor",
+                    "H_Church Sensor",
                     Color.DarkOrange);
 
             Series state =
                 CreateSeries(
-                    "State",
+                    "H_State",
                     Color.Blue);
 
             state.BorderWidth = 1;
