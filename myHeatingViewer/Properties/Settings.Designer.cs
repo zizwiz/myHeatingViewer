@@ -8,21 +8,162 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace myHeatingViewer.Properties
-{
+namespace myHeatingViewer.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Green")]
+        public string ElectricityColour {
+            get {
+                return ((string)(this["ElectricityColour"]));
+            }
+            set {
+                this["ElectricityColour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Blue")]
+        public string GalleryColour {
+            get {
+                return ((string)(this["GalleryColour"]));
+            }
+            set {
+                this["GalleryColour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Orange")]
+        public string MiddleColour {
+            get {
+                return ((string)(this["MiddleColour"]));
+            }
+            set {
+                this["MiddleColour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkCyan")]
+        public string OutsideColour {
+            get {
+                return ((string)(this["OutsideColour"]));
+            }
+            set {
+                this["OutsideColour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Magenta")]
+        public string SanctuaryColour {
+            get {
+                return ((string)(this["SanctuaryColour"]));
+            }
+            set {
+                this["SanctuaryColour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Goldenrod")]
+        public string ThermostatColour {
+            get {
+                return ((string)(this["ThermostatColour"]));
+            }
+            set {
+                this["ThermostatColour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkRed")]
+        public string SetTempColour {
+            get {
+                return ((string)(this["SetTempColour"]));
+            }
+            set {
+                this["SetTempColour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Yellow")]
+        public string ActualTempColour {
+            get {
+                return ((string)(this["ActualTempColour"]));
+            }
+            set {
+                this["ActualTempColour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Purple")]
+        public string ChurchSensorColour {
+            get {
+                return ((string)(this["ChurchSensorColour"]));
+            }
+            set {
+                this["ChurchSensorColour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        public string StateColour {
+            get {
+                return ((string)(this["StateColour"]));
+            }
+            set {
+                this["StateColour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double YAxisMin {
+            get {
+                return ((double)(this["YAxisMin"]));
+            }
+            set {
+                this["YAxisMin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public double YAxisMax {
+            get {
+                return ((double)(this["YAxisMax"]));
+            }
+            set {
+                this["YAxisMax"] = value;
             }
         }
     }

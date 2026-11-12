@@ -69,6 +69,7 @@
     <Compile Include="Services\DataContext.cs" />
     <Compile Include="Services\FolderService.cs" />
     <Compile Include="Services\MonthData.cs" />
+    <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Services\TimeService.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -81,6 +82,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Data\2026\October\ChurchE.csv" />
     <None Include="Data\2026\October\Gallery.csv" />

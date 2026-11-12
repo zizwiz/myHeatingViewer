@@ -68,5 +68,119 @@ namespace myHeatingViewer.Services
                     CurrentDay);
             }
         }
+
+
+        //public void LoadUserSettings()
+        //{
+        //    _context.ElectricityColor =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .ElectricityColour);
+
+        //    _context.GalleryColor =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .GalleryColour);
+
+        //    _context.MiddleColor =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .MiddleColour);
+
+        //    _context.OutsideColor =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .OutsideColour);
+
+        //    _context.SanctuaryColor =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .SanctuaryColour);
+
+        //    _context.ThermostatColor =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .ThermostatColour);
+
+        //    _context.SetTempColor =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .SetTempColour);
+
+        //    _context.ActualTempColor =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .ActualTempColour);
+
+        //    _context.ChurchSensorColor =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .ChurchSensorColour);
+
+        //    _context.StateColor =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .StateColour);
+
+        //    _context.YAxisMinimum =
+        //        Properties.Settings.Default.YAxisMin;
+
+        //    _context.YAxisMaximum =
+        //        Properties.Settings.Default.YAxisMax;
+        //}
+
+        //private void SaveSettings()
+        //{
+        //    Properties.Settings.Default
+        //            .ElectricityColour =
+        //        _context.ElectricityColor.Name;
+
+        //    Properties.Settings.Default
+        //            .GalleryColour =
+        //        _context.GalleryColor.Name;
+
+        //    Properties.Settings.Default
+        //            .MiddleColour =
+        //        _context.MiddleColor.Name;
+
+        //    Properties.Settings.Default
+        //            .OutsideColour =
+        //        _context.OutsideColor.Name;
+
+        //    Properties.Settings.Default
+        //            .SanctuaryColour =
+        //        _context.SanctuaryColor.Name;
+
+        //    Properties.Settings.Default
+        //            .ThermostatColour =
+        //        _context.ThermostatColor.Name;
+
+        //    Properties.Settings.Default
+        //            .SetTempColour =
+        //        _context.SetTempColor.Name;
+
+        //    Properties.Settings.Default
+        //            .ActualTempColour =
+        //        _context.ActualTempColor.Name;
+
+        //    Properties.Settings.Default
+        //            .ChurchSensorColour =
+        //        _context.ChurchSensorColor.Name;
+
+        //    Properties.Settings.Default
+        //            .StateColour =
+        //        _context.StateColor.Name;
+
+        //    Properties.Settings.Default
+        //            .YAxisMin =
+        //        _context.YAxisMinimum;
+
+        //    Properties.Settings.Default
+        //            .YAxisMax =
+        //        _context.YAxisMaximum;
+
+        //    Properties.Settings.Default.Save();
+        //}
     }
 }
+

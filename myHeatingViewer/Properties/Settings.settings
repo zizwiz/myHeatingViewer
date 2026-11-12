@@ -1,7 +1,42 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="myHeatingViewer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ElectricityColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Green</Value>
+    </Setting>
+    <Setting Name="GalleryColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Blue</Value>
+    </Setting>
+    <Setting Name="MiddleColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Orange</Value>
+    </Setting>
+    <Setting Name="OutsideColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DarkCyan</Value>
+    </Setting>
+    <Setting Name="SanctuaryColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Magenta</Value>
+    </Setting>
+    <Setting Name="ThermostatColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Goldenrod</Value>
+    </Setting>
+    <Setting Name="SetTempColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DarkRed</Value>
+    </Setting>
+    <Setting Name="ActualTempColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Yellow</Value>
+    </Setting>
+    <Setting Name="ChurchSensorColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Purple</Value>
+    </Setting>
+    <Setting Name="StateColour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Red</Value>
+    </Setting>
+    <Setting Name="YAxisMin" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="YAxisMax" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
