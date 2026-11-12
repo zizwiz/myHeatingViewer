@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
 using System.Reflection;
 using System.Windows.Forms;
@@ -37,6 +39,17 @@ namespace myHeatingViewer
         private void Form1_Load(object sender, EventArgs e)
         {
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
+
+            btnElectricityColour.BackColor = _context.ElectricityColour;
+            btnThermostatColour.BackColor = _context.ThermostatColour;
+            btnGalleryColour.BackColor = _context.GalleryColour;
+            btnMiddleColour.BackColor = _context.MiddleColour;
+            btnSanctuaryColour.BackColor = _context.SanctuaryColour;
+            btnOutsideColour.BackColor = _context.OutsideColour;
+            btnHeatmiserActualTempColour.BackColor = _context.ActualTempColour;
+            btnHeatmiserChurchSensorColour.BackColor = _context.ChurchSensorColour;
+            btnHeatmiserStateColour.BackColor = _context.StateColour;
+            btnHeatmisetSetTempColour.BackColor = _context.SetTempColour;
         }
         
         private void btn_close_Click(object sender, EventArgs e)
@@ -281,5 +294,103 @@ namespace myHeatingViewer
             _chartService.ConfigureChart(
                 chartMain);
         }
+
+        private Color PickColour(Color currentColour)
+        {
+            using (ColorDialog dlg =
+                   new ColorDialog())
+            {
+                dlg.Color = currentColour;
+
+                if (dlg.ShowDialog() ==
+                    DialogResult.OK)
+                {
+                    return dlg.Color;
+                }
+            }
+
+            return currentColour;
+        }
+
+        private void ChangeChartLineColour_Click(object sender, EventArgs e)
+        {
+            switch (((Button)sender).Text)
+            {
+                case "Electricity":
+                    btnElectricityColour.BackColor = _context.ElectricityColour = PickColour(_context.ElectricityColour);
+                    break;
+                case "Gallery":
+                    btnGalleryColour.BackColor = _context.GalleryColour = PickColour(_context.GalleryColour);
+                    break;
+                case "Middle":
+                    btnMiddleColour.BackColor = _context.MiddleColour = PickColour(_context.MiddleColour);
+                    break;
+                case "Thermostat":
+                    btnThermostatColour.BackColor = _context.ThermostatColour = PickColour(_context.ThermostatColour);
+                    break;
+                case "Outside":
+                    btnOutsideColour.BackColor = _context.OutsideColour = PickColour(_context.OutsideColour);
+                    break;
+                case "Sanctuary":
+                    btnSanctuaryColour.BackColor = _context.SanctuaryColour = PickColour(_context.SanctuaryColour);
+                    break;
+                case "Set Temperature":
+                    btnHeatmisetSetTempColour.BackColor = _context.SetTempColour = PickColour(_context.SetTempColour);
+                    break;
+                case "Actual Temperature":
+                    btnHeatmiserActualTempColour.BackColor = _context.ActualTempColour = PickColour(_context.ActualTempColour);
+                    break;
+                case "Church Sensor":
+                    btnHeatmiserChurchSensorColour.BackColor = _context.ChurchSensorColour = PickColour(_context.ChurchSensorColour);
+                    break;
+                case "Heating State":
+                    btnHeatmiserStateColour.BackColor = _context.StateColour = PickColour(_context.StateColour);
+                    break;
+                default:
+                    MessageBox.Show("Errror: Unknown button pressed", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                        break;
+
+            }
+        }
+
+        //public Color GetColour(string seriesName)
+        //{
+        //    switch (seriesName)
+        //    {
+        //        case "Electricity":
+        //            return _context.ElectricityColour;
+
+        //        case "Gallery":
+        //            return _context.GalleryColour;
+
+        //        case "Middle":
+        //            return _context.MiddleColour;
+
+        //        case "Outside":
+        //            return _context.OutsideColour;
+
+        //        case "Sanctuary":
+        //            return _context.SanctuaryColour;
+
+        //        case "Thermostat":
+        //            return _context.ThermostatColour;
+
+        //        case "Set Temp":
+        //            return _context.SetTempColour;
+
+        //        case "Actual Temp":
+        //            return _context.ActualTempColour;
+
+        //        case "Church Sensor":
+        //            return _context.ChurchSensorColour;
+
+        //        case "State":
+        //            return _context.StateColour;
+
+        //        default:
+        //            return Color.Black;
+        //    }
+        //}
     }
 }

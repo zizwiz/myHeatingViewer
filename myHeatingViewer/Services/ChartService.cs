@@ -115,7 +115,7 @@ namespace myHeatingViewer.Services
             Series series =
                 CreateSeries(
                     "Electricity",
-                    Color.Red);
+                    _context.ElectricityColour);
 
             foreach (ElectricityRecord record in records)
             {
@@ -145,7 +145,7 @@ namespace myHeatingViewer.Services
         Series series =
                 CreateSeries(
                     sensor,
-                    GetColour(sensor));
+                    _context.ThermostatColour);
 
             foreach (TemperatureRecord record in records)
             {
@@ -173,22 +173,22 @@ namespace myHeatingViewer.Services
             Series setTemp =
                 CreateSeries(
                     "H_Set Temp",
-                    Color.Black);
+                    _context.SetTempColour);
 
             Series actualTemp =
                 CreateSeries(
                     "H_Actual Temp",
-                    Color.DarkGreen);
+                    _context.ActualTempColour);
 
             Series churchSensor =
                 CreateSeries(
                     "H_Church Sensor",
-                    Color.DarkOrange);
+                    _context.ChurchSensorColour);
 
             Series state =
                 CreateSeries(
                     "H_State",
-                    Color.Blue);
+                    _context.StateColour);
 
             state.BorderWidth = 1;
 
@@ -248,30 +248,30 @@ namespace myHeatingViewer.Services
             return s;
         }
 
-        private Color GetColour(
-            string sensor)
-        {
-            switch (sensor)
-            {
-                case "Gallery":
-                    return Color.Green;
+        //private Color GetColour(
+        //    string sensor)
+        //{
+        //    switch (sensor)
+        //    {
+        //        case "Gallery":
+        //            return Color.Green;
 
-                case "Middle":
-                    return Color.Orange;
+        //        case "Middle":
+        //            return Color.Orange;
 
-                case "Outside":
-                    return Color.Blue;
+        //        case "Outside":
+        //            return Color.Blue;
 
-                case "Sanctuary":
-                    return Color.Purple;
+        //        case "Sanctuary":
+        //            return Color.Purple;
 
-                case "Thermostat":
-                    return Color.Brown;
+        //        case "Thermostat":
+        //            return Color.Brown;
 
-                default:
-                    return Color.Black;
-            }
-        }
+        //        default:
+        //            return Color.Black;
+        //    }
+        //}
 
         #endregion
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
 
 namespace myHeatingViewer.Services
@@ -16,6 +17,36 @@ namespace myHeatingViewer.Services
         public double YAxisMinimum { get; set; } = 0;
 
         public double YAxisMaximum { get; set; } = 60;
+
+        public Color ElectricityColour { get; set; }
+            = Color.Green;
+
+        public Color GalleryColour { get; set; }
+            = Color.Blue;
+
+        public Color MiddleColour { get; set; }
+            = Color.Orange;
+
+        public Color OutsideColour { get; set; }
+            = Color.DarkCyan;
+
+        public Color SanctuaryColour { get; set; }
+            = Color.Magenta;
+
+        public Color ThermostatColour { get; set; }
+            = Color.Goldenrod;
+
+        public Color SetTempColour { get; set; }
+            = Color.DarkRed;
+
+        public Color ActualTempColour { get; set; }
+            = Color.Yellow;
+
+        public Color ChurchSensorColour { get; set; }
+            = Color.Purple;
+
+        public Color StateColour { get; set; }
+            = Color.Red;
 
         public DateTime SelectedDate
         {

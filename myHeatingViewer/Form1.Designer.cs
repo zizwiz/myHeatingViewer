@@ -53,6 +53,20 @@ namespace myHeatingViewer
             this.btnDrawChart = new System.Windows.Forms.Button();
             this.clbData = new System.Windows.Forms.CheckedListBox();
             this.btn_close = new System.Windows.Forms.Button();
+            this.btnElectricityColour = new System.Windows.Forms.Button();
+            this.btnGalleryColour = new System.Windows.Forms.Button();
+            this.btnMiddleColour = new System.Windows.Forms.Button();
+            this.btnOutsideColour = new System.Windows.Forms.Button();
+            this.btnSanctuaryColour = new System.Windows.Forms.Button();
+            this.btnHeatmiserStateColour = new System.Windows.Forms.Button();
+            this.btnHeatmiserChurchSensorColour = new System.Windows.Forms.Button();
+            this.btnHeatmiserActualTempColour = new System.Windows.Forms.Button();
+            this.btnHeatmisetSetTempColour = new System.Windows.Forms.Button();
+            this.btnThermostatColour = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -62,6 +76,10 @@ namespace myHeatingViewer
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -141,6 +159,7 @@ namespace myHeatingViewer
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.groupBox5);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
@@ -154,7 +173,7 @@ namespace myHeatingViewer
             this.groupBox1.Controls.Add(this.txtbx_YAxis_min);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(28, 15);
+            this.groupBox1.Location = new System.Drawing.Point(12, 316);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(179, 111);
             this.groupBox1.TabIndex = 4;
@@ -281,6 +300,155 @@ namespace myHeatingViewer
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // btnElectricityColour
+            // 
+            this.btnElectricityColour.Location = new System.Drawing.Point(30, 26);
+            this.btnElectricityColour.Name = "btnElectricityColour";
+            this.btnElectricityColour.Size = new System.Drawing.Size(118, 41);
+            this.btnElectricityColour.TabIndex = 16;
+            this.btnElectricityColour.Text = "Electricity";
+            this.btnElectricityColour.UseVisualStyleBackColor = true;
+            this.btnElectricityColour.Click += new System.EventHandler(this.ChangeChartLineColour_Click);
+            // 
+            // btnGalleryColour
+            // 
+            this.btnGalleryColour.Location = new System.Drawing.Point(16, 66);
+            this.btnGalleryColour.Name = "btnGalleryColour";
+            this.btnGalleryColour.Size = new System.Drawing.Size(118, 41);
+            this.btnGalleryColour.TabIndex = 17;
+            this.btnGalleryColour.Text = "Gallery";
+            this.btnGalleryColour.UseVisualStyleBackColor = true;
+            this.btnGalleryColour.Click += new System.EventHandler(this.ChangeChartLineColour_Click);
+            // 
+            // btnMiddleColour
+            // 
+            this.btnMiddleColour.Location = new System.Drawing.Point(16, 113);
+            this.btnMiddleColour.Name = "btnMiddleColour";
+            this.btnMiddleColour.Size = new System.Drawing.Size(118, 41);
+            this.btnMiddleColour.TabIndex = 18;
+            this.btnMiddleColour.Text = "Middle";
+            this.btnMiddleColour.UseVisualStyleBackColor = true;
+            this.btnMiddleColour.Click += new System.EventHandler(this.ChangeChartLineColour_Click);
+            // 
+            // btnOutsideColour
+            // 
+            this.btnOutsideColour.Location = new System.Drawing.Point(16, 160);
+            this.btnOutsideColour.Name = "btnOutsideColour";
+            this.btnOutsideColour.Size = new System.Drawing.Size(118, 41);
+            this.btnOutsideColour.TabIndex = 19;
+            this.btnOutsideColour.Text = "Outside";
+            this.btnOutsideColour.UseVisualStyleBackColor = true;
+            this.btnOutsideColour.Click += new System.EventHandler(this.ChangeChartLineColour_Click);
+            // 
+            // btnSanctuaryColour
+            // 
+            this.btnSanctuaryColour.Location = new System.Drawing.Point(16, 207);
+            this.btnSanctuaryColour.Name = "btnSanctuaryColour";
+            this.btnSanctuaryColour.Size = new System.Drawing.Size(118, 41);
+            this.btnSanctuaryColour.TabIndex = 20;
+            this.btnSanctuaryColour.Text = "Sanctuary";
+            this.btnSanctuaryColour.UseVisualStyleBackColor = true;
+            this.btnSanctuaryColour.Click += new System.EventHandler(this.ChangeChartLineColour_Click);
+            // 
+            // btnHeatmiserStateColour
+            // 
+            this.btnHeatmiserStateColour.Location = new System.Drawing.Point(22, 164);
+            this.btnHeatmiserStateColour.Name = "btnHeatmiserStateColour";
+            this.btnHeatmiserStateColour.Size = new System.Drawing.Size(168, 41);
+            this.btnHeatmiserStateColour.TabIndex = 25;
+            this.btnHeatmiserStateColour.Text = "Heating State";
+            this.btnHeatmiserStateColour.UseVisualStyleBackColor = true;
+            this.btnHeatmiserStateColour.Click += new System.EventHandler(this.ChangeChartLineColour_Click);
+            // 
+            // btnHeatmiserChurchSensorColour
+            // 
+            this.btnHeatmiserChurchSensorColour.Location = new System.Drawing.Point(22, 117);
+            this.btnHeatmiserChurchSensorColour.Name = "btnHeatmiserChurchSensorColour";
+            this.btnHeatmiserChurchSensorColour.Size = new System.Drawing.Size(168, 41);
+            this.btnHeatmiserChurchSensorColour.TabIndex = 24;
+            this.btnHeatmiserChurchSensorColour.Text = "Church Sensor";
+            this.btnHeatmiserChurchSensorColour.UseVisualStyleBackColor = true;
+            this.btnHeatmiserChurchSensorColour.Click += new System.EventHandler(this.ChangeChartLineColour_Click);
+            // 
+            // btnHeatmiserActualTempColour
+            // 
+            this.btnHeatmiserActualTempColour.Location = new System.Drawing.Point(22, 70);
+            this.btnHeatmiserActualTempColour.Name = "btnHeatmiserActualTempColour";
+            this.btnHeatmiserActualTempColour.Size = new System.Drawing.Size(168, 41);
+            this.btnHeatmiserActualTempColour.TabIndex = 23;
+            this.btnHeatmiserActualTempColour.Text = "Actual Temperature";
+            this.btnHeatmiserActualTempColour.UseVisualStyleBackColor = true;
+            this.btnHeatmiserActualTempColour.Click += new System.EventHandler(this.ChangeChartLineColour_Click);
+            // 
+            // btnHeatmisetSetTempColour
+            // 
+            this.btnHeatmisetSetTempColour.Location = new System.Drawing.Point(22, 23);
+            this.btnHeatmisetSetTempColour.Name = "btnHeatmisetSetTempColour";
+            this.btnHeatmisetSetTempColour.Size = new System.Drawing.Size(168, 41);
+            this.btnHeatmisetSetTempColour.TabIndex = 22;
+            this.btnHeatmisetSetTempColour.Text = "Set Temperature";
+            this.btnHeatmisetSetTempColour.UseVisualStyleBackColor = true;
+            this.btnHeatmisetSetTempColour.Click += new System.EventHandler(this.ChangeChartLineColour_Click);
+            // 
+            // btnThermostatColour
+            // 
+            this.btnThermostatColour.Location = new System.Drawing.Point(16, 19);
+            this.btnThermostatColour.Name = "btnThermostatColour";
+            this.btnThermostatColour.Size = new System.Drawing.Size(118, 41);
+            this.btnThermostatColour.TabIndex = 21;
+            this.btnThermostatColour.Text = "Thermostat";
+            this.btnThermostatColour.UseVisualStyleBackColor = true;
+            this.btnThermostatColour.Click += new System.EventHandler(this.ChangeChartLineColour_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnHeatmiserStateColour);
+            this.groupBox2.Controls.Add(this.btnHeatmiserChurchSensorColour);
+            this.groupBox2.Controls.Add(this.btnHeatmiserActualTempColour);
+            this.groupBox2.Controls.Add(this.btnHeatmisetSetTempColour);
+            this.groupBox2.Location = new System.Drawing.Point(365, 22);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(213, 215);
+            this.groupBox2.TabIndex = 26;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Heatmiser";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnGalleryColour);
+            this.groupBox3.Controls.Add(this.btnThermostatColour);
+            this.groupBox3.Controls.Add(this.btnMiddleColour);
+            this.groupBox3.Controls.Add(this.btnSanctuaryColour);
+            this.groupBox3.Controls.Add(this.btnOutsideColour);
+            this.groupBox3.Location = new System.Drawing.Point(204, 22);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(155, 259);
+            this.groupBox3.TabIndex = 27;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Sensors";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnElectricityColour);
+            this.groupBox4.Location = new System.Drawing.Point(21, 22);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(177, 86);
+            this.groupBox4.TabIndex = 28;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Smart Meter";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.groupBox4);
+            this.groupBox5.Controls.Add(this.groupBox3);
+            this.groupBox5.Controls.Add(this.groupBox2);
+            this.groupBox5.Location = new System.Drawing.Point(12, 13);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(596, 297);
+            this.groupBox5.TabIndex = 29;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Chart Line Colours";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -301,6 +469,10 @@ namespace myHeatingViewer
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -327,6 +499,20 @@ namespace myHeatingViewer
         private System.Windows.Forms.TextBox txtbx_YAxis_min;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnElectricityColour;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnGalleryColour;
+        private System.Windows.Forms.Button btnThermostatColour;
+        private System.Windows.Forms.Button btnMiddleColour;
+        private System.Windows.Forms.Button btnSanctuaryColour;
+        private System.Windows.Forms.Button btnOutsideColour;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnHeatmiserStateColour;
+        private System.Windows.Forms.Button btnHeatmiserChurchSensorColour;
+        private System.Windows.Forms.Button btnHeatmiserActualTempColour;
+        private System.Windows.Forms.Button btnHeatmisetSetTempColour;
     }
 }
 
