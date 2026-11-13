@@ -91,7 +91,7 @@ namespace myHeatingViewer.Helpers
         /// <summary>
         /// Processes CSV file: removes last two columns and reorders remaining columns.
         /// </summary>
-        public void ProcessCsv(string filePath)
+        public static void ProcessCsv(string filePath)
         {
             string tempPath = filePath + ".tmp";
 
