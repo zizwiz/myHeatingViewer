@@ -70,117 +70,117 @@ namespace myHeatingViewer.Services
         }
 
 
-        //public void LoadUserSettings()
-        //{
-        //    _context.ElectricityColor =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .ElectricityColour);
+        public void LoadUserSettings()
+        {
+            ElectricityColour =
+                Color.FromName(
+                    Properties.Settings.Default
+                        .ElectricityColour);
 
-        //    _context.GalleryColor =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .GalleryColour);
+            GalleryColour =
+                Color.FromName(
+                    Properties.Settings.Default
+                        .GalleryColour);
 
-        //    _context.MiddleColor =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .MiddleColour);
+            MiddleColour =
+                Color.FromName(
+                    Properties.Settings.Default
+                        .MiddleColour);
 
-        //    _context.OutsideColor =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .OutsideColour);
+            OutsideColour =
+                Color.FromName(
+                    Properties.Settings.Default
+                        .OutsideColour);
 
-        //    _context.SanctuaryColor =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .SanctuaryColour);
+            SanctuaryColour =
+                Color.FromName(
+                    Properties.Settings.Default
+                        .SanctuaryColour);
 
-        //    _context.ThermostatColor =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .ThermostatColour);
+            ThermostatColour =
+                Color.FromName(
+                    Properties.Settings.Default
+                        .ThermostatColour);
 
-        //    _context.SetTempColor =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .SetTempColour);
+            SetTempColour =
+                Color.FromName(
+                    Properties.Settings.Default
+                        .SetTempColour);
 
-        //    _context.ActualTempColor =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .ActualTempColour);
+            ActualTempColour =
+                Color.FromName(
+                    Properties.Settings.Default
+                        .ActualTempColour);
 
-        //    _context.ChurchSensorColor =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .ChurchSensorColour);
+            ChurchSensorColour =
+                Color.FromName(
+                    Properties.Settings.Default
+                        .ChurchSensorColour);
 
-        //    _context.StateColor =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .StateColour);
+            StateColour =
+                Color.FromName(
+                    Properties.Settings.Default
+                        .StateColour);
 
-        //    _context.YAxisMinimum =
-        //        Properties.Settings.Default.YAxisMin;
+            YAxisMinimum =
+                Properties.Settings.Default.YAxisMin;
 
-        //    _context.YAxisMaximum =
-        //        Properties.Settings.Default.YAxisMax;
-        //}
+            YAxisMaximum =
+                Properties.Settings.Default.YAxisMax;
+        }
 
-        //private void SaveSettings()
-        //{
-        //    Properties.Settings.Default
-        //            .ElectricityColour =
-        //        _context.ElectricityColor.Name;
+        public void SaveSettings()
+        {
+            Properties.Settings.Default
+                    .ElectricityColour =
+                ElectricityColour.Name;
 
-        //    Properties.Settings.Default
-        //            .GalleryColour =
-        //        _context.GalleryColor.Name;
+            Properties.Settings.Default
+                    .GalleryColour =
+                GalleryColour.Name;
 
-        //    Properties.Settings.Default
-        //            .MiddleColour =
-        //        _context.MiddleColor.Name;
+            Properties.Settings.Default
+                    .MiddleColour =
+                MiddleColour.Name;
 
-        //    Properties.Settings.Default
-        //            .OutsideColour =
-        //        _context.OutsideColor.Name;
+            Properties.Settings.Default
+                    .OutsideColour =
+                OutsideColour.Name;
 
-        //    Properties.Settings.Default
-        //            .SanctuaryColour =
-        //        _context.SanctuaryColor.Name;
+            Properties.Settings.Default
+                    .SanctuaryColour =
+                SanctuaryColour.Name;
 
-        //    Properties.Settings.Default
-        //            .ThermostatColour =
-        //        _context.ThermostatColor.Name;
+            Properties.Settings.Default
+                    .ThermostatColour =
+                ThermostatColour.Name;
 
-        //    Properties.Settings.Default
-        //            .SetTempColour =
-        //        _context.SetTempColor.Name;
+            Properties.Settings.Default
+                    .SetTempColour =
+                SetTempColour.Name;
 
-        //    Properties.Settings.Default
-        //            .ActualTempColour =
-        //        _context.ActualTempColor.Name;
+            Properties.Settings.Default
+                    .ActualTempColour =
+                ActualTempColour.Name;
 
-        //    Properties.Settings.Default
-        //            .ChurchSensorColour =
-        //        _context.ChurchSensorColor.Name;
+            Properties.Settings.Default
+                    .ChurchSensorColour =
+                ChurchSensorColour.Name;
 
-        //    Properties.Settings.Default
-        //            .StateColour =
-        //        _context.StateColor.Name;
+            Properties.Settings.Default
+                    .StateColour =
+               StateColour.Name;
 
-        //    Properties.Settings.Default
-        //            .YAxisMin =
-        //        _context.YAxisMinimum;
+            Properties.Settings.Default
+                    .YAxisMin =
+                YAxisMinimum;
 
-        //    Properties.Settings.Default
-        //            .YAxisMax =
-        //        _context.YAxisMaximum;
+            Properties.Settings.Default
+                    .YAxisMax =
+                YAxisMaximum;
 
-        //    Properties.Settings.Default.Save();
-        //}
+            Properties.Settings.Default.Save();
+        }
     }
 }
 

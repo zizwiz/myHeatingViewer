@@ -11,27 +11,26 @@ namespace myHeatingViewer
 {
     public partial class Form1 : Form
     {
-        private FolderService _folderService;
-        private CsvDataService _csvService;
+        private FolderService _folderService = new FolderService();
+        private CsvDataService _csvService = new CsvDataService();
         private ChartService _chartService;
-        private SettingsService _settingsService;
+       // private SettingsService _settingsService;
 
-        private readonly DataContext _context;
+        private readonly DataContext _context = new DataContext();
+
+        
 
         public Form1()
         {
             InitializeComponent();
 
-            _context = new DataContext();
+            //_context = new DataContext();
 
-            _folderService = new FolderService();
+            //_folderService = new FolderService();
 
-            _csvService = new CsvDataService();
+            //_csvService = new CsvDataService();
 
-            _chartService =
-                new ChartService(
-                    _csvService,
-                    _context);
+            _chartService = new ChartService(_csvService, _context);
 
             _chartService.ConfigureChart(chartMain);
 
@@ -41,7 +40,7 @@ namespace myHeatingViewer
         {
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
-            LoadUserSettings();
+            _context.LoadUserSettings();
 
             btnElectricityColour.BackColor = _context.ElectricityColour;
             btnThermostatColour.BackColor = _context.ThermostatColour;
@@ -257,9 +256,6 @@ namespace myHeatingViewer
                     _context.DataRoot,
                     _context.SelectedDate);
 
-            //MessageBox.Show(
-            //    string.Join(", ", datasets));
-
             foreach (string dataset in datasets)
             {
                 clbData.Items.Add(dataset);
@@ -302,7 +298,7 @@ namespace myHeatingViewer
             _chartService.ConfigureChart(
                 chartMain);
 
-            SaveSettings();
+            _context.SaveSettings();
         }
 
         private Color PickColour(Color currentColour)
@@ -328,167 +324,159 @@ namespace myHeatingViewer
             {
                 case "Electricity":
                     btnElectricityColour.BackColor = _context.ElectricityColour = PickColour(_context.ElectricityColour);
-                    Update();
                     break;
                 case "Gallery":
                     btnGalleryColour.BackColor = _context.GalleryColour = PickColour(_context.GalleryColour);
-                    Update();
                     break;
                 case "Middle":
                     btnMiddleColour.BackColor = _context.MiddleColour = PickColour(_context.MiddleColour);
-                    Update();
-                    break;
+                   break;
                 case "Thermostat":
                     btnThermostatColour.BackColor = _context.ThermostatColour = PickColour(_context.ThermostatColour);
-                    Update();
-                    break;
+                   break;
                 case "Outside":
                     btnOutsideColour.BackColor = _context.OutsideColour = PickColour(_context.OutsideColour);
-                    Update();
-                    break;
+                   break;
                 case "Sanctuary":
                     btnSanctuaryColour.BackColor = _context.SanctuaryColour = PickColour(_context.SanctuaryColour);
-                    Update();
-                    break;
+                   break;
                 case "Set Temperature":
                     btnHeatmisetSetTempColour.BackColor = _context.SetTempColour = PickColour(_context.SetTempColour);
-                    Update();
-                    break;
+                   break;
                 case "Actual Temperature":
                     btnHeatmiserActualTempColour.BackColor = _context.ActualTempColour = PickColour(_context.ActualTempColour);
-                    Update();
-                    break;
+                   break;
                 case "Church Sensor":
                     btnHeatmiserChurchSensorColour.BackColor = _context.ChurchSensorColour = PickColour(_context.ChurchSensorColour);
-                    Update();
-                    break;
+                   break;
                 case "Heating State":
                     btnHeatmiserStateColour.BackColor = _context.StateColour = PickColour(_context.StateColour);
-                    Update();
                     break;
                 default:
                     MessageBox.Show("Errror: Unknown button pressed", "Error", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     break;
             }
+            UpdateUI();
+
         }
 
-        private void Update()
+        private void UpdateUI()
         {
             DrawChart();
-            SaveSettings();
+            _context.SaveSettings();
         }
 
-        public void LoadUserSettings()
-        {
-            _context.ElectricityColour =
-                Color.FromName(
-                    Properties.Settings.Default
-                        .ElectricityColour);
+        //public void LoadUserSettings()
+        //{
+        //    _context.ElectricityColour =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .ElectricityColour);
 
-            _context.GalleryColour =
-                Color.FromName(
-                    Properties.Settings.Default
-                        .GalleryColour);
+        //    _context.GalleryColour =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .GalleryColour);
 
-            _context.MiddleColour =
-                Color.FromName(
-                    Properties.Settings.Default
-                        .MiddleColour);
+        //    _context.MiddleColour =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .MiddleColour);
 
-            _context.OutsideColour =
-                Color.FromName(
-                    Properties.Settings.Default
-                        .OutsideColour);
+        //    _context.OutsideColour =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .OutsideColour);
 
-            _context.SanctuaryColour =
-                Color.FromName(
-                    Properties.Settings.Default
-                        .SanctuaryColour);
+        //    _context.SanctuaryColour =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .SanctuaryColour);
 
-            _context.ThermostatColour =
-                Color.FromName(
-                    Properties.Settings.Default
-                        .ThermostatColour);
+        //    _context.ThermostatColour =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .ThermostatColour);
 
-            _context.SetTempColour =
-                Color.FromName(
-                    Properties.Settings.Default
-                        .SetTempColour);
+        //    _context.SetTempColour =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .SetTempColour);
 
-            _context.ActualTempColour =
-                Color.FromName(
-                    Properties.Settings.Default
-                        .ActualTempColour);
+        //    _context.ActualTempColour =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .ActualTempColour);
 
-            _context.ChurchSensorColour =
-                Color.FromName(
-                    Properties.Settings.Default
-                        .ChurchSensorColour);
+        //    _context.ChurchSensorColour =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .ChurchSensorColour);
 
-            _context.StateColour =
-                Color.FromName(
-                    Properties.Settings.Default
-                        .StateColour);
+        //    _context.StateColour =
+        //        Color.FromName(
+        //            Properties.Settings.Default
+        //                .StateColour);
 
-            _context.YAxisMinimum =
-                Properties.Settings.Default.YAxisMin;
+        //    _context.YAxisMinimum =
+        //        Properties.Settings.Default.YAxisMin;
 
-            _context.YAxisMaximum =
-                Properties.Settings.Default.YAxisMax;
-        }
+        //    _context.YAxisMaximum =
+        //        Properties.Settings.Default.YAxisMax;
+        //}
 
-        private void SaveSettings()
-        {
-            Properties.Settings.Default
-                    .ElectricityColour =
-                _context.ElectricityColour.Name;
+        //private void SaveSettings()
+        //{
+        //    Properties.Settings.Default
+        //            .ElectricityColour =
+        //        _context.ElectricityColour.Name;
 
-            Properties.Settings.Default
-                    .GalleryColour =
-                _context.GalleryColour.Name;
+        //    Properties.Settings.Default
+        //            .GalleryColour =
+        //        _context.GalleryColour.Name;
 
-            Properties.Settings.Default
-                    .MiddleColour =
-                _context.MiddleColour.Name;
+        //    Properties.Settings.Default
+        //            .MiddleColour =
+        //        _context.MiddleColour.Name;
 
-            Properties.Settings.Default
-                    .OutsideColour =
-                _context.OutsideColour.Name;
+        //    Properties.Settings.Default
+        //            .OutsideColour =
+        //        _context.OutsideColour.Name;
 
-            Properties.Settings.Default
-                    .SanctuaryColour =
-                _context.SanctuaryColour.Name;
+        //    Properties.Settings.Default
+        //            .SanctuaryColour =
+        //        _context.SanctuaryColour.Name;
 
-            Properties.Settings.Default
-                    .ThermostatColour =
-                _context.ThermostatColour.Name;
+        //    Properties.Settings.Default
+        //            .ThermostatColour =
+        //        _context.ThermostatColour.Name;
 
-            Properties.Settings.Default
-                    .SetTempColour =
-                _context.SetTempColour.Name;
+        //    Properties.Settings.Default
+        //            .SetTempColour =
+        //        _context.SetTempColour.Name;
 
-            Properties.Settings.Default
-                    .ActualTempColour =
-                _context.ActualTempColour.Name;
+        //    Properties.Settings.Default
+        //            .ActualTempColour =
+        //        _context.ActualTempColour.Name;
 
-            Properties.Settings.Default
-                    .ChurchSensorColour =
-                _context.ChurchSensorColour.Name;
+        //    Properties.Settings.Default
+        //            .ChurchSensorColour =
+        //        _context.ChurchSensorColour.Name;
 
-            Properties.Settings.Default
-                    .StateColour =
-                _context.StateColour.Name;
+        //    Properties.Settings.Default
+        //            .StateColour =
+        //        _context.StateColour.Name;
 
-            Properties.Settings.Default
-                    .YAxisMin =
-                _context.YAxisMinimum;
+        //    Properties.Settings.Default
+        //            .YAxisMin =
+        //        _context.YAxisMinimum;
 
-            Properties.Settings.Default
-                    .YAxisMax =
-                _context.YAxisMaximum;
+        //    Properties.Settings.Default
+        //            .YAxisMax =
+        //        _context.YAxisMaximum;
 
-            Properties.Settings.Default.Save();
-        }
+        //    Properties.Settings.Default.Save();
+        //}
     }
 }
