@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Deployment.Application;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using myHeatingViewer.Helpers;
 using myHeatingViewer.Services;
 
 namespace myHeatingViewer
@@ -365,6 +367,50 @@ namespace myHeatingViewer
         {
             DrawChart();
             _context.SaveSettings();
+        }
+
+        private void btnOpenFileToModify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (OpenFileDialog ofd = new OpenFileDialog())
+                {
+                    ofd.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+                    ofd.Title = "Select CSV File";
+
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        string filePath = ofd.FileName;
+                        string backupPath = filePath + ".bak";
+
+                        // Backup original file
+                        File.Copy(filePath, backupPath, true);
+
+                        // Process file with buffered streaming
+                        if (CSVTools.ReplaceBytes(filePath, new byte[] {0x0D, 0x0A}, new byte[] {0x2C}, 4096))
+                        {
+
+                        }
+                        else
+                        {
+                            
+                        }
+
+                       
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void btnModifyFile_Click(object sender, EventArgs e)
+        {
+
         }
 
         //public void LoadUserSettings()

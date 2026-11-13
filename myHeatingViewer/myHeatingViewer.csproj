@@ -51,7 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CachedFile.cs" />
-    <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\ConversionTools.cs" />
+    <Compile Include="Helpers\CSVTools.cs" />
     <Compile Include="Models\ElectricityRecord.cs" />
     <Compile Include="Models\HeatmiserRecord.cs" />
     <Compile Include="Models\TemperatureRecord.cs" />
@@ -71,6 +72,9 @@
     <Compile Include="Services\MonthData.cs" />
     <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Services\TimeService.cs" />
+    <Compile Include="utils\MsgBox.cs" />
+    <Compile Include="utils\Sunriset.cs" />
+    <Compile Include="utils\Win32.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

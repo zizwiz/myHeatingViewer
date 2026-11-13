@@ -67,6 +67,11 @@ namespace myHeatingViewer
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnModifyFile = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnOpenFileToModify = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -80,6 +85,7 @@ namespace myHeatingViewer
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -159,6 +165,7 @@ namespace myHeatingViewer
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.groupBox6);
             this.panel2.Controls.Add(this.groupBox5);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -449,6 +456,57 @@ namespace myHeatingViewer
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Chart Line Colours";
             // 
+            // btnModifyFile
+            // 
+            this.btnModifyFile.Location = new System.Drawing.Point(410, 110);
+            this.btnModifyFile.Name = "btnModifyFile";
+            this.btnModifyFile.Size = new System.Drawing.Size(98, 42);
+            this.btnModifyFile.TabIndex = 30;
+            this.btnModifyFile.Text = "Modify File";
+            this.btnModifyFile.UseVisualStyleBackColor = true;
+            this.btnModifyFile.Click += new System.EventHandler(this.btnModifyFile_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(149, 20);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "File being modified: ";
+            // 
+            // btnOpenFileToModify
+            // 
+            this.btnOpenFileToModify.Location = new System.Drawing.Point(6, 110);
+            this.btnOpenFileToModify.Name = "btnOpenFileToModify";
+            this.btnOpenFileToModify.Size = new System.Drawing.Size(98, 42);
+            this.btnOpenFileToModify.TabIndex = 35;
+            this.btnOpenFileToModify.Text = "Open File";
+            this.btnOpenFileToModify.UseVisualStyleBackColor = true;
+            this.btnOpenFileToModify.Click += new System.EventHandler(this.btnOpenFileToModify_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label4);
+            this.groupBox6.Controls.Add(this.btnOpenFileToModify);
+            this.groupBox6.Controls.Add(this.label3);
+            this.groupBox6.Controls.Add(this.btnModifyFile);
+            this.groupBox6.Location = new System.Drawing.Point(614, 13);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(514, 158);
+            this.groupBox6.TabIndex = 36;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Configure CSV File";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(179, 51);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 20);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "none";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -473,6 +531,8 @@ namespace myHeatingViewer
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -513,6 +573,11 @@ namespace myHeatingViewer
         private System.Windows.Forms.Button btnHeatmiserChurchSensorColour;
         private System.Windows.Forms.Button btnHeatmiserActualTempColour;
         private System.Windows.Forms.Button btnHeatmisetSetTempColour;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button btnOpenFileToModify;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnModifyFile;
+        private System.Windows.Forms.Label label4;
     }
 }
 
