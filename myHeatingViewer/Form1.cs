@@ -5,6 +5,8 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using CenteredMessagebox;
 using myHeatingViewer.Helpers;
 using myHeatingViewer.Services;
 
@@ -41,7 +43,7 @@ namespace myHeatingViewer
         {
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
-            _context.LoadUserSettings();
+            _context.LoadUserSettings(); //get all teh stored settings from last run
 
             btnElectricityColour.BackColor = _context.ElectricityColour;
             btnGalleryColour.BackColor = _context.GalleryColour;
@@ -435,6 +437,58 @@ namespace myHeatingViewer
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void btn_saveChart_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SaveFileDialog dialog = new SaveFileDialog())
+                {
+                    dialog.Title = "Save Chart As Image";
+                    dialog.Filter =
+                        "JPEG Image (*.jpg)|*.jpg|PNG Image (*.png)|*.png|Bitmap Image (*.bmp)|*.bmp";
+                    dialog.DefaultExt = "png";
+                    dialog.AddExtension = true;
+
+                    // Show dialog and validate selection
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Determine chosen format
+                        ChartImageFormat format;
+                        string ext = Path.GetExtension(dialog.FileName).ToLower();
+
+                        switch (ext)
+                        {
+                            case ".jpg":
+                            case ".jpeg":
+                                format = ChartImageFormat.Jpeg;
+                                break;
+                            case ".png":
+                                format = ChartImageFormat.Png;
+                                break;
+                            case ".bmp":
+                                format = ChartImageFormat.Bmp;
+                                break;
+                            default:
+                                MessageBox.Show("Unsupported file format.", "Error");
+                                return;
+                        }
+
+                        chartMain.SaveImage(dialog.FileName, format);
+                       
+                        MsgBox.Show("Chart saved successfully", "Success", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MsgBox.Show($"An error occurred while saving the chart:\n{ex.Message}",
+                    "Save Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
     }
 }

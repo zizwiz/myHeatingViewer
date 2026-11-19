@@ -71,6 +71,7 @@ namespace myHeatingViewer
             this.btnOpenFileToModify = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lbl_FileToModify = new System.Windows.Forms.Label();
+            this.btn_saveChart = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -224,6 +225,7 @@ namespace myHeatingViewer
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btn_saveChart);
             this.panel3.Controls.Add(this.lstDays);
             this.panel3.Controls.Add(this.lstMonths);
             this.panel3.Controls.Add(this.lstYears);
@@ -241,7 +243,7 @@ namespace myHeatingViewer
             // 
             this.lstDays.FormattingEnabled = true;
             this.lstDays.ItemHeight = 20;
-            this.lstDays.Location = new System.Drawing.Point(433, 14);
+            this.lstDays.Location = new System.Drawing.Point(433, 9);
             this.lstDays.Name = "lstDays";
             this.lstDays.Size = new System.Drawing.Size(182, 164);
             this.lstDays.TabIndex = 18;
@@ -251,7 +253,7 @@ namespace myHeatingViewer
             // 
             this.lstMonths.FormattingEnabled = true;
             this.lstMonths.ItemHeight = 20;
-            this.lstMonths.Location = new System.Drawing.Point(214, 12);
+            this.lstMonths.Location = new System.Drawing.Point(214, 9);
             this.lstMonths.Name = "lstMonths";
             this.lstMonths.Size = new System.Drawing.Size(180, 164);
             this.lstMonths.TabIndex = 17;
@@ -269,7 +271,7 @@ namespace myHeatingViewer
             // 
             // btnLoadData
             // 
-            this.btnLoadData.Location = new System.Drawing.Point(900, 29);
+            this.btnLoadData.Location = new System.Drawing.Point(874, 9);
             this.btnLoadData.Name = "btnLoadData";
             this.btnLoadData.Size = new System.Drawing.Size(135, 56);
             this.btnLoadData.TabIndex = 15;
@@ -279,7 +281,7 @@ namespace myHeatingViewer
             // 
             // btnDrawChart
             // 
-            this.btnDrawChart.Location = new System.Drawing.Point(1302, 29);
+            this.btnDrawChart.Location = new System.Drawing.Point(874, 118);
             this.btnDrawChart.Name = "btnDrawChart";
             this.btnDrawChart.Size = new System.Drawing.Size(135, 56);
             this.btnDrawChart.TabIndex = 14;
@@ -291,13 +293,14 @@ namespace myHeatingViewer
             // 
             this.clbData.CheckOnClick = true;
             this.clbData.FormattingEnabled = true;
-            this.clbData.Location = new System.Drawing.Point(655, 14);
+            this.clbData.Location = new System.Drawing.Point(654, 9);
             this.clbData.Name = "clbData";
             this.clbData.Size = new System.Drawing.Size(173, 165);
             this.clbData.TabIndex = 13;
             // 
             // btn_close
             // 
+            this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_close.Location = new System.Drawing.Point(1306, 126);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(131, 59);
@@ -495,6 +498,17 @@ namespace myHeatingViewer
             this.lbl_FileToModify.TabIndex = 36;
             this.lbl_FileToModify.Text = "none";
             // 
+            // btn_saveChart
+            // 
+            this.btn_saveChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_saveChart.Location = new System.Drawing.Point(1306, 9);
+            this.btn_saveChart.Name = "btn_saveChart";
+            this.btn_saveChart.Size = new System.Drawing.Size(131, 59);
+            this.btn_saveChart.TabIndex = 19;
+            this.btn_saveChart.Text = "Save Chart";
+            this.btn_saveChart.UseVisualStyleBackColor = true;
+            this.btn_saveChart.Click += new System.EventHandler(this.btn_saveChart_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -565,6 +579,7 @@ namespace myHeatingViewer
         private System.Windows.Forms.Button btnOpenFileToModify;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbl_FileToModify;
+        private System.Windows.Forms.Button btn_saveChart;
     }
 }
 
