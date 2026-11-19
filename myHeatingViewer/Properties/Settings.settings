@@ -2,34 +2,34 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="myHeatingViewer.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ElectricityColour" Type="System.String" Scope="User">
+    <Setting Name="ElectricityColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Green</Value>
     </Setting>
-    <Setting Name="GalleryColour" Type="System.String" Scope="User">
+    <Setting Name="GalleryColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Blue</Value>
     </Setting>
-    <Setting Name="MiddleColour" Type="System.String" Scope="User">
+    <Setting Name="MiddleColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Orange</Value>
     </Setting>
-    <Setting Name="OutsideColour" Type="System.String" Scope="User">
+    <Setting Name="OutsideColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DarkCyan</Value>
     </Setting>
-    <Setting Name="SanctuaryColour" Type="System.String" Scope="User">
+    <Setting Name="SanctuaryColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Magenta</Value>
     </Setting>
-    <Setting Name="ThermostatColour" Type="System.String" Scope="User">
+    <Setting Name="ThermostatColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Goldenrod</Value>
     </Setting>
-    <Setting Name="SetTempColour" Type="System.String" Scope="User">
+    <Setting Name="SetTempColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DarkRed</Value>
     </Setting>
-    <Setting Name="ActualTempColour" Type="System.String" Scope="User">
+    <Setting Name="ActualTempColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Yellow</Value>
     </Setting>
-    <Setting Name="ChurchSensorColour" Type="System.String" Scope="User">
+    <Setting Name="ChurchSensorColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Purple</Value>
     </Setting>
-    <Setting Name="StateColour" Type="System.String" Scope="User">
+    <Setting Name="StateColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Red</Value>
     </Setting>
     <Setting Name="YAxisMin" Type="System.Double" Scope="User">

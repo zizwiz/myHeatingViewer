@@ -9,10 +9,9 @@ namespace myHeatingViewer.Helpers
         /// <summary>
         /// Buffered streaming replacement of target byte sequence with replacement byte sequence.
         /// </summary>
-        public static bool ReplaceBytes(string filePath, byte[] target, byte[] replacement, int bufferSize)
+        public static void ReplaceBytes(string filePath, byte[] target, byte[] replacement, int bufferSize)
         {
-            bool answer = false;
-            string tempPath = filePath + ".tmp";
+           string tempPath = filePath + ".tmp";
 
             using (FileStream input = new FileStream(filePath, FileMode.Open, FileAccess.Read))
             using (FileStream output = new FileStream(tempPath, FileMode.Create, FileAccess.Write))
@@ -77,15 +76,12 @@ namespace myHeatingViewer.Helpers
                 {
                     output.Write(carryOver, 0, carryLen);
                 }
-
-                answer = true;
             }
 
             // Replace original file with temp file
             File.Delete(filePath);
             File.Move(tempPath, filePath);
 
-            return answer;
         }
 
         /// <summary>

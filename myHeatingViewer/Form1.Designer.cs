@@ -36,9 +36,9 @@ namespace myHeatingViewer
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tab_chart = new System.Windows.Forms.TabPage();
             this.chartMain = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tab_settings = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtbx_YAxis_max = new System.Windows.Forms.TextBox();
@@ -67,17 +67,16 @@ namespace myHeatingViewer
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnModifyFile = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnOpenFileToModify = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_FileToModify = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tab_chart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMain)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tab_settings.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -115,8 +114,8 @@ namespace myHeatingViewer
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tab_chart);
+            this.tabControl1.Controls.Add(this.tab_settings);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -124,16 +123,16 @@ namespace myHeatingViewer
             this.tabControl1.Size = new System.Drawing.Size(1446, 484);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // tab_chart
             // 
-            this.tabPage1.Controls.Add(this.chartMain);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1438, 451);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tab_chart.Controls.Add(this.chartMain);
+            this.tab_chart.Location = new System.Drawing.Point(4, 29);
+            this.tab_chart.Name = "tab_chart";
+            this.tab_chart.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_chart.Size = new System.Drawing.Size(1438, 451);
+            this.tab_chart.TabIndex = 0;
+            this.tab_chart.Text = "Chart";
+            this.tab_chart.UseVisualStyleBackColor = true;
             // 
             // chartMain
             // 
@@ -152,16 +151,16 @@ namespace myHeatingViewer
             this.chartMain.TabIndex = 0;
             this.chartMain.Text = "chart1";
             // 
-            // tabPage2
+            // tab_settings
             // 
-            this.tabPage2.Controls.Add(this.panel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1438, 451);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tab_settings.Controls.Add(this.panel2);
+            this.tab_settings.Location = new System.Drawing.Point(4, 29);
+            this.tab_settings.Name = "tab_settings";
+            this.tab_settings.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_settings.Size = new System.Drawing.Size(1438, 451);
+            this.tab_settings.TabIndex = 1;
+            this.tab_settings.Text = "Settings";
+            this.tab_settings.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -292,7 +291,7 @@ namespace myHeatingViewer
             // 
             this.clbData.CheckOnClick = true;
             this.clbData.FormattingEnabled = true;
-            this.clbData.Location = new System.Drawing.Point(655, 3);
+            this.clbData.Location = new System.Drawing.Point(655, 14);
             this.clbData.Name = "clbData";
             this.clbData.Size = new System.Drawing.Size(173, 165);
             this.clbData.TabIndex = 13;
@@ -456,20 +455,10 @@ namespace myHeatingViewer
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Chart Line Colours";
             // 
-            // btnModifyFile
-            // 
-            this.btnModifyFile.Location = new System.Drawing.Point(410, 110);
-            this.btnModifyFile.Name = "btnModifyFile";
-            this.btnModifyFile.Size = new System.Drawing.Size(98, 42);
-            this.btnModifyFile.TabIndex = 30;
-            this.btnModifyFile.Text = "Modify File";
-            this.btnModifyFile.UseVisualStyleBackColor = true;
-            this.btnModifyFile.Click += new System.EventHandler(this.btnModifyFile_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 51);
+            this.label3.Location = new System.Drawing.Point(6, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(149, 20);
             this.label3.TabIndex = 31;
@@ -477,7 +466,7 @@ namespace myHeatingViewer
             // 
             // btnOpenFileToModify
             // 
-            this.btnOpenFileToModify.Location = new System.Drawing.Point(6, 110);
+            this.btnOpenFileToModify.Location = new System.Drawing.Point(10, 40);
             this.btnOpenFileToModify.Name = "btnOpenFileToModify";
             this.btnOpenFileToModify.Size = new System.Drawing.Size(98, 42);
             this.btnOpenFileToModify.TabIndex = 35;
@@ -487,25 +476,24 @@ namespace myHeatingViewer
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.label4);
+            this.groupBox6.Controls.Add(this.lbl_FileToModify);
             this.groupBox6.Controls.Add(this.btnOpenFileToModify);
             this.groupBox6.Controls.Add(this.label3);
-            this.groupBox6.Controls.Add(this.btnModifyFile);
             this.groupBox6.Location = new System.Drawing.Point(614, 13);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(514, 158);
+            this.groupBox6.Size = new System.Drawing.Size(510, 133);
             this.groupBox6.TabIndex = 36;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Configure CSV File";
             // 
-            // label4
+            // lbl_FileToModify
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(179, 51);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 20);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "none";
+            this.lbl_FileToModify.AutoSize = true;
+            this.lbl_FileToModify.Location = new System.Drawing.Point(161, 102);
+            this.lbl_FileToModify.Name = "lbl_FileToModify";
+            this.lbl_FileToModify.Size = new System.Drawing.Size(45, 20);
+            this.lbl_FileToModify.TabIndex = 36;
+            this.lbl_FileToModify.Text = "none";
             // 
             // Form1
             // 
@@ -520,9 +508,9 @@ namespace myHeatingViewer
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tab_chart.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartMain)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            this.tab_settings.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -544,9 +532,9 @@ namespace myHeatingViewer
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tab_chart;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartMain;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tab_settings;
         private System.Windows.Forms.Button btnLoadData;
         private System.Windows.Forms.Button btnDrawChart;
         private System.Windows.Forms.CheckedListBox clbData;
@@ -576,8 +564,7 @@ namespace myHeatingViewer
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btnOpenFileToModify;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnModifyFile;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_FileToModify;
     }
 }
 

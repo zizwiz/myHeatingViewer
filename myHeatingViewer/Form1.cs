@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Deployment.Application;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -16,11 +15,11 @@ namespace myHeatingViewer
         private FolderService _folderService = new FolderService();
         private CsvDataService _csvService = new CsvDataService();
         private ChartService _chartService;
-       // private SettingsService _settingsService;
+        // private SettingsService _settingsService;
 
         private readonly DataContext _context = new DataContext();
 
-        
+
 
         public Form1()
         {
@@ -45,6 +44,7 @@ namespace myHeatingViewer
             _context.LoadUserSettings();
 
             btnElectricityColour.BackColor = _context.ElectricityColour;
+            btnGalleryColour.BackColor = _context.GalleryColour;
             btnThermostatColour.BackColor = _context.ThermostatColour;
             btnGalleryColour.BackColor = _context.GalleryColour;
             btnMiddleColour.BackColor = _context.MiddleColour;
@@ -332,25 +332,25 @@ namespace myHeatingViewer
                     break;
                 case "Middle":
                     btnMiddleColour.BackColor = _context.MiddleColour = PickColour(_context.MiddleColour);
-                   break;
+                    break;
                 case "Thermostat":
                     btnThermostatColour.BackColor = _context.ThermostatColour = PickColour(_context.ThermostatColour);
-                   break;
+                    break;
                 case "Outside":
                     btnOutsideColour.BackColor = _context.OutsideColour = PickColour(_context.OutsideColour);
-                   break;
+                    break;
                 case "Sanctuary":
                     btnSanctuaryColour.BackColor = _context.SanctuaryColour = PickColour(_context.SanctuaryColour);
-                   break;
+                    break;
                 case "Set Temperature":
                     btnHeatmisetSetTempColour.BackColor = _context.SetTempColour = PickColour(_context.SetTempColour);
-                   break;
+                    break;
                 case "Actual Temperature":
                     btnHeatmiserActualTempColour.BackColor = _context.ActualTempColour = PickColour(_context.ActualTempColour);
-                   break;
+                    break;
                 case "Church Sensor":
                     btnHeatmiserChurchSensorColour.BackColor = _context.ChurchSensorColour = PickColour(_context.ChurchSensorColour);
-                   break;
+                    break;
                 case "Heating State":
                     btnHeatmiserStateColour.BackColor = _context.StateColour = PickColour(_context.StateColour);
                     break;
@@ -380,6 +380,7 @@ namespace myHeatingViewer
 
                     if (ofd.ShowDialog() == DialogResult.OK)
                     {
+                        lbl_FileToModify.Text = ofd.FileName;
                         string filePath = ofd.FileName;
                         string backupPath = filePath + ".bak";
 
@@ -387,39 +388,41 @@ namespace myHeatingViewer
                         File.Copy(filePath, backupPath, true);
 
                         // Process file with buffered streaming
-                        if (CSVTools.ReplaceBytes(filePath, new byte[] {0x0D, 0x0A}, new byte[] {0x2C}, 4096))
-                        {
+                        CSVTools.ReplaceBytes(filePath, ConversionTools.HexStringToByteArray("0D0A2C"),
+                            ConversionTools.HexStringToByteArray("2C"), 4096);
 
-                        }
-                        else
-                        {
-                            /*
-                             * 0D0A2C	2C
-                               
-                               2C4368757263682073656E736F7220202C	2C	
-                               
-                               
-                               5374617465	53746174652C4368757263682073656E736F72
-                               
-                               2C526F6F6D2C	2C
-                               
-                               2C4368757263682068656174696E672C	2C
-                               
-                               4F6666	30
-                               
-                               5072652D48656174696E67	32
-                               
-                               48656174696E67	34
-                               
-                               2C2C	2C302C
-                               
-                               4461746520616E642054696D65	446174652C54696D65
-                               
-                               3230323620	323032362C
-                             */
-                        }
+                        CSVTools.ReplaceBytes(filePath, ConversionTools.HexStringToByteArray("2C4368757263682073656E736F7220202C"),
+                         ConversionTools.HexStringToByteArray("2C"), 4096);
 
 
+                        CSVTools.ReplaceBytes(filePath, ConversionTools.HexStringToByteArray("5374617465"),
+                         ConversionTools.HexStringToByteArray("53746174652C4368757263682073656E736F72"), 4096);
+
+                        CSVTools.ReplaceBytes(filePath, ConversionTools.HexStringToByteArray("2C526F6F6D2C"),
+                         ConversionTools.HexStringToByteArray("2C"), 4096);
+
+                        CSVTools.ReplaceBytes(filePath, ConversionTools.HexStringToByteArray("2C4368757263682068656174696E672C"),
+                         ConversionTools.HexStringToByteArray("2C"), 4096);
+
+                        CSVTools.ReplaceBytes(filePath, ConversionTools.HexStringToByteArray("4F6666"),
+                         ConversionTools.HexStringToByteArray("30"), 4096);
+
+                        CSVTools.ReplaceBytes(filePath, ConversionTools.HexStringToByteArray("5072652D48656174696E67"),
+                         ConversionTools.HexStringToByteArray("32"), 4096);
+
+                        CSVTools.ReplaceBytes(filePath, ConversionTools.HexStringToByteArray("48656174696E67"),
+                         ConversionTools.HexStringToByteArray("34"), 4096);
+
+                        CSVTools.ReplaceBytes(filePath, ConversionTools.HexStringToByteArray("2C2C"),
+                         ConversionTools.HexStringToByteArray("2C302C"), 4096);
+
+                        CSVTools.ReplaceBytes(filePath, ConversionTools.HexStringToByteArray("4461746520616E642054696D65"),
+                         ConversionTools.HexStringToByteArray("446174652C54696D65"), 4096);
+
+                        CSVTools.ReplaceBytes(filePath, ConversionTools.HexStringToByteArray("3230323620"),
+                         ConversionTools.HexStringToByteArray("323032362C"), 4096);
+
+                        CSVTools.ProcessCsv(filePath); //Reconfigure the columns etc
                     }
                 }
             }
@@ -430,122 +433,5 @@ namespace myHeatingViewer
             }
 
         }
-
-        private void btnModifyFile_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //public void LoadUserSettings()
-        //{
-        //    _context.ElectricityColour =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .ElectricityColour);
-
-        //    _context.GalleryColour =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .GalleryColour);
-
-        //    _context.MiddleColour =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .MiddleColour);
-
-        //    _context.OutsideColour =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .OutsideColour);
-
-        //    _context.SanctuaryColour =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .SanctuaryColour);
-
-        //    _context.ThermostatColour =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .ThermostatColour);
-
-        //    _context.SetTempColour =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .SetTempColour);
-
-        //    _context.ActualTempColour =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .ActualTempColour);
-
-        //    _context.ChurchSensorColour =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .ChurchSensorColour);
-
-        //    _context.StateColour =
-        //        Color.FromName(
-        //            Properties.Settings.Default
-        //                .StateColour);
-
-        //    _context.YAxisMinimum =
-        //        Properties.Settings.Default.YAxisMin;
-
-        //    _context.YAxisMaximum =
-        //        Properties.Settings.Default.YAxisMax;
-        //}
-
-        //private void SaveSettings()
-        //{
-        //    Properties.Settings.Default
-        //            .ElectricityColour =
-        //        _context.ElectricityColour.Name;
-
-        //    Properties.Settings.Default
-        //            .GalleryColour =
-        //        _context.GalleryColour.Name;
-
-        //    Properties.Settings.Default
-        //            .MiddleColour =
-        //        _context.MiddleColour.Name;
-
-        //    Properties.Settings.Default
-        //            .OutsideColour =
-        //        _context.OutsideColour.Name;
-
-        //    Properties.Settings.Default
-        //            .SanctuaryColour =
-        //        _context.SanctuaryColour.Name;
-
-        //    Properties.Settings.Default
-        //            .ThermostatColour =
-        //        _context.ThermostatColour.Name;
-
-        //    Properties.Settings.Default
-        //            .SetTempColour =
-        //        _context.SetTempColour.Name;
-
-        //    Properties.Settings.Default
-        //            .ActualTempColour =
-        //        _context.ActualTempColour.Name;
-
-        //    Properties.Settings.Default
-        //            .ChurchSensorColour =
-        //        _context.ChurchSensorColour.Name;
-
-        //    Properties.Settings.Default
-        //            .StateColour =
-        //        _context.StateColour.Name;
-
-        //    Properties.Settings.Default
-        //            .YAxisMin =
-        //        _context.YAxisMinimum;
-
-        //    Properties.Settings.Default
-        //            .YAxisMax =
-        //        _context.YAxisMaximum;
-
-        //    Properties.Settings.Default.Save();
-        //}
     }
 }

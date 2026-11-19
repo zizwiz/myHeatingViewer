@@ -26,9 +26,9 @@ namespace myHeatingViewer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Green")]
-        public string ElectricityColour {
+        public global::System.Drawing.Color ElectricityColour {
             get {
-                return ((string)(this["ElectricityColour"]));
+                return ((global::System.Drawing.Color)(this["ElectricityColour"]));
             }
             set {
                 this["ElectricityColour"] = value;
@@ -38,9 +38,9 @@ namespace myHeatingViewer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Blue")]
-        public string GalleryColour {
+        public global::System.Drawing.Color GalleryColour {
             get {
-                return ((string)(this["GalleryColour"]));
+                return ((global::System.Drawing.Color)(this["GalleryColour"]));
             }
             set {
                 this["GalleryColour"] = value;
@@ -50,9 +50,9 @@ namespace myHeatingViewer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Orange")]
-        public string MiddleColour {
+        public global::System.Drawing.Color MiddleColour {
             get {
-                return ((string)(this["MiddleColour"]));
+                return ((global::System.Drawing.Color)(this["MiddleColour"]));
             }
             set {
                 this["MiddleColour"] = value;
@@ -62,9 +62,9 @@ namespace myHeatingViewer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("DarkCyan")]
-        public string OutsideColour {
+        public global::System.Drawing.Color OutsideColour {
             get {
-                return ((string)(this["OutsideColour"]));
+                return ((global::System.Drawing.Color)(this["OutsideColour"]));
             }
             set {
                 this["OutsideColour"] = value;
@@ -74,9 +74,9 @@ namespace myHeatingViewer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Magenta")]
-        public string SanctuaryColour {
+        public global::System.Drawing.Color SanctuaryColour {
             get {
-                return ((string)(this["SanctuaryColour"]));
+                return ((global::System.Drawing.Color)(this["SanctuaryColour"]));
             }
             set {
                 this["SanctuaryColour"] = value;
@@ -86,9 +86,9 @@ namespace myHeatingViewer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Goldenrod")]
-        public string ThermostatColour {
+        public global::System.Drawing.Color ThermostatColour {
             get {
-                return ((string)(this["ThermostatColour"]));
+                return ((global::System.Drawing.Color)(this["ThermostatColour"]));
             }
             set {
                 this["ThermostatColour"] = value;
@@ -98,9 +98,9 @@ namespace myHeatingViewer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("DarkRed")]
-        public string SetTempColour {
+        public global::System.Drawing.Color SetTempColour {
             get {
-                return ((string)(this["SetTempColour"]));
+                return ((global::System.Drawing.Color)(this["SetTempColour"]));
             }
             set {
                 this["SetTempColour"] = value;
@@ -110,9 +110,9 @@ namespace myHeatingViewer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Yellow")]
-        public string ActualTempColour {
+        public global::System.Drawing.Color ActualTempColour {
             get {
-                return ((string)(this["ActualTempColour"]));
+                return ((global::System.Drawing.Color)(this["ActualTempColour"]));
             }
             set {
                 this["ActualTempColour"] = value;
@@ -122,9 +122,9 @@ namespace myHeatingViewer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Purple")]
-        public string ChurchSensorColour {
+        public global::System.Drawing.Color ChurchSensorColour {
             get {
-                return ((string)(this["ChurchSensorColour"]));
+                return ((global::System.Drawing.Color)(this["ChurchSensorColour"]));
             }
             set {
                 this["ChurchSensorColour"] = value;
@@ -134,9 +134,9 @@ namespace myHeatingViewer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Red")]
-        public string StateColour {
+        public global::System.Drawing.Color StateColour {
             get {
-                return ((string)(this["StateColour"]));
+                return ((global::System.Drawing.Color)(this["StateColour"]));
             }
             set {
                 this["StateColour"] = value;
