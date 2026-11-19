@@ -54,6 +54,9 @@ namespace myHeatingViewer
             btnHeatmiserChurchSensorColour.BackColor = _context.ChurchSensorColour;
             btnHeatmiserStateColour.BackColor = _context.StateColour;
             btnHeatmisetSetTempColour.BackColor = _context.SetTempColour;
+
+            txtbx_YAxis_min.Text = _context.YAxisMinimum.ToString();
+            txtbx_YAxis_max.Text = _context.YAxisMaximum.ToString();
         }
 
         private void btn_close_Click(object sender, EventArgs e)
