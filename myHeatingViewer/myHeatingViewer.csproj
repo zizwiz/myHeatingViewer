@@ -53,6 +53,7 @@
     <Compile Include="CachedFile.cs" />
     <Compile Include="Helpers\ConversionTools.cs" />
     <Compile Include="Helpers\CSVTools.cs" />
+    <Compile Include="Helpers\DayNightShading.cs" />
     <Compile Include="Models\ElectricityRecord.cs" />
     <Compile Include="Models\HeatmiserRecord.cs" />
     <Compile Include="Models\TemperatureRecord.cs" />

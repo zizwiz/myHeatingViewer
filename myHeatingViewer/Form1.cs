@@ -21,7 +21,9 @@ namespace myHeatingViewer
 
         private readonly DataContext _context = new DataContext();
 
-
+        //used to store data to use in sunrise and sunset tooltips
+        private List<DateTime> sunriseMarkers = new List<DateTime>();
+        private List<DateTime> sunsetMarkers = new List<DateTime>();
 
         public Form1()
         {
@@ -184,6 +186,57 @@ namespace myHeatingViewer
                     chartMain,
                     dataset);
             }
+
+            // ---------------------------------------------------------
+            // SUNRISE / SUNSET shading
+            // ---------------------------------------------------------
+            DateTime? sunrise;
+            DateTime? sunset;
+            var myDay = GetSelectedDate();
+
+
+            sunrise = DayNightShading.GetSunEventLocal(myDay, true);
+            sunset = DayNightShading.GetSunEventLocal(myDay, false);
+
+            // Vertical markers
+            if (sunrise.HasValue)
+            {
+                DayNightShading.AddVerticalLine(sunrise.Value, Color.Red, chartMain);
+                sunriseMarkers.Add(sunrise.Value);
+            }
+
+            if (sunset.HasValue)
+            {
+                DayNightShading.AddVerticalLine(sunset.Value, Color.Orange, chartMain);
+                sunsetMarkers.Add(sunset.Value);
+            }
+
+            // ---------------------------------------------------------
+            // NIGHT BEFORE SUNRISE (00:00 → sunrise)
+            // ---------------------------------------------------------
+            DayNightShading.AddNightBeforeSunrise(myDay, sunrise.Value, chartMain);
+
+            // ---------------------------------------------------------
+            // DAYLIGHT SHADING (sunrise → sunset)
+            // ---------------------------------------------------------
+            DayNightShading.AddDaylightShading(sunrise.Value, sunset.Value, chartMain);
+
+            // ---------------------------------------------------------
+            // NIGHT AFTER SUNSET (sunset → next sunrise)
+            // ---------------------------------------------------------
+            DateTime nextDay = myDay.AddDays(1);
+            DateTime? nextSunrise = DayNightShading.GetSunEventLocal(nextDay, true);
+
+            if (nextSunrise.HasValue)
+                DayNightShading.AddNightShading(sunset.Value, nextSunrise.Value, chartMain);
+
+            
+
+
+
+
+
+
         }
 
         #endregion
