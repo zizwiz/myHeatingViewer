@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using myHeatingViewer.Models;
 using System.Drawing;
+using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace myHeatingViewer.Services
@@ -20,8 +21,7 @@ namespace myHeatingViewer.Services
 
         #region Configuration
 
-        public void ConfigureChart(
-            Chart chart)
+        public void ConfigureChart(Chart chart)
         {
             ChartArea area;
 
@@ -50,6 +50,39 @@ namespace myHeatingViewer.Services
 
             area.AxisY.MajorGrid.LineColor =
                 Color.LightGray;
+
+
+            area.CursorX.IsUserEnabled = true;
+            area.CursorX.IsUserSelectionEnabled = true;
+
+            area.CursorX.Interval = 0;
+
+            area.AxisX.ScaleView.Zoomable = true;
+            area.AxisX.ScrollBar.Enabled = true;
+            area.AxisX.ScrollBar.IsPositionedInside = true;
+
+            area.AxisX.ScaleView.SizeType = DateTimeIntervalType.Hours;
+        }
+
+        public static void EnableYAxisZoom(Chart chart, CheckBox myCheckBox)
+        {
+            bool flag = myCheckBox.Checked;  //used for zooming Y-Axis
+
+            ChartArea area;
+
+            if (chart.ChartAreas.Count == 0)
+            {
+                area = new ChartArea("Main");
+                chart.ChartAreas.Add(area);
+            }
+            else
+            {
+                area = chart.ChartAreas[0];
+            }
+
+            area.CursorY.IsUserEnabled = flag;
+            area.CursorY.IsUserSelectionEnabled = flag;
+            area.AxisY.ScaleView.Zoomable = flag;
         }
 
         #endregion
@@ -131,7 +164,7 @@ namespace myHeatingViewer.Services
 
         #region Temperature
 
-        
+
         private void DrawTemperature(
             Chart chart,
             string sensor)
@@ -142,10 +175,10 @@ namespace myHeatingViewer.Services
                     _context.SelectedDate,
                     sensor);
 
-        Series series =
-                CreateSeries(
-                    sensor,
-                    _context.ThermostatColour);
+            Series series =
+                    CreateSeries(
+                        sensor,
+                        _context.ThermostatColour);
 
             foreach (TemperatureRecord record in records)
             {
@@ -246,6 +279,15 @@ namespace myHeatingViewer.Services
                 ChartValueType.DateTime;
 
             return s;
+        }
+
+        public void ResetZoom(Chart chart)
+        {
+            ChartArea area = chart.ChartAreas[0];
+
+            area.AxisX.ScaleView.ZoomReset(0);
+
+            area.AxisY.ScaleView.ZoomReset(0);
         }
 
         #endregion

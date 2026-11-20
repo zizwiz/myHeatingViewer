@@ -29,15 +29,11 @@ namespace myHeatingViewer
         {
             InitializeComponent();
 
-            //_context = new DataContext();
-
-            //_folderService = new FolderService();
-
-            //_csvService = new CsvDataService();
-
             _chartService = new ChartService(_csvService, _context);
 
             _chartService.ConfigureChart(chartMain);
+
+            
 
         }
 
@@ -355,8 +351,7 @@ namespace myHeatingViewer
         {
             UpdateChartSettings();
 
-            _chartService.ConfigureChart(
-                chartMain);
+            _chartService.ConfigureChart(chartMain);
 
             _context.SaveSettings();
         }
@@ -542,6 +537,38 @@ namespace myHeatingViewer
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void chartMain_GetToolTipText(object sender, ToolTipEventArgs e)
+        {
+            // Only show tooltips for data points
+            if (e.HitTestResult.ChartElementType == ChartElementType.DataPoint)
+            {
+                DataPoint point = e.HitTestResult.Series.Points[e.HitTestResult.PointIndex];
+
+                // Extract the DateTime from the X value
+                DateTime dt = DateTime.FromOADate(point.XValue);
+
+                // Extract Y-axis value
+                double yAxisValue = point.YValues[0];
+
+
+                // Build tooltip text
+                e.Text =
+                    "Date: " + dt.ToString("dd-MMM-yyyy") + Environment.NewLine +
+                    "Time: " + dt.ToString("HH:mm") + Environment.NewLine +
+                    "Value: " + yAxisValue.ToString("F3");
+            }
+        }
+
+        private void btn_resetZoom_Click(object sender, EventArgs e)
+        {
+            _chartService.ResetZoom(chartMain);
+        }
+
+        private void chkbx_zoom_Y_Axis_CheckedChanged(object sender, EventArgs e)
+        {
+            ChartService.EnableYAxisZoom(chartMain, chkbx_zoom_Y_Axis);
         }
     }
 }
