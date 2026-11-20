@@ -37,6 +37,7 @@ namespace myHeatingViewer
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_chart = new System.Windows.Forms.TabPage();
+            this.lblCrossHair = new System.Windows.Forms.Label();
             this.chartMain = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tab_settings = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -64,6 +65,7 @@ namespace myHeatingViewer
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btn_clear_crosshairs = new System.Windows.Forms.Button();
             this.chkbx_zoom_Y_Axis = new System.Windows.Forms.CheckBox();
             this.btn_resetZoom = new System.Windows.Forms.Button();
             this.btn_saveChart = new System.Windows.Forms.Button();
@@ -128,6 +130,7 @@ namespace myHeatingViewer
             // 
             // tab_chart
             // 
+            this.tab_chart.Controls.Add(this.lblCrossHair);
             this.tab_chart.Controls.Add(this.chartMain);
             this.tab_chart.Location = new System.Drawing.Point(4, 29);
             this.tab_chart.Name = "tab_chart";
@@ -136,6 +139,15 @@ namespace myHeatingViewer
             this.tab_chart.TabIndex = 0;
             this.tab_chart.Text = "Chart";
             this.tab_chart.UseVisualStyleBackColor = true;
+            // 
+            // lblCrossHair
+            // 
+            this.lblCrossHair.AutoSize = true;
+            this.lblCrossHair.Location = new System.Drawing.Point(6, 418);
+            this.lblCrossHair.Name = "lblCrossHair";
+            this.lblCrossHair.Size = new System.Drawing.Size(45, 20);
+            this.lblCrossHair.TabIndex = 1;
+            this.lblCrossHair.Text = ".........";
             // 
             // chartMain
             // 
@@ -154,6 +166,9 @@ namespace myHeatingViewer
             this.chartMain.TabIndex = 0;
             this.chartMain.Text = "chart1";
             this.chartMain.GetToolTipText += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs>(this.chartMain_GetToolTipText);
+            this.chartMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.chartMain_MouseDown);
+            this.chartMain.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartMain_MouseMove);
+            this.chartMain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chartMain_MouseUp);
             // 
             // tab_settings
             // 
@@ -417,6 +432,7 @@ namespace myHeatingViewer
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btn_clear_crosshairs);
             this.panel3.Controls.Add(this.chkbx_zoom_Y_Axis);
             this.panel3.Controls.Add(this.btn_resetZoom);
             this.panel3.Controls.Add(this.btn_saveChart);
@@ -433,10 +449,20 @@ namespace myHeatingViewer
             this.panel3.Size = new System.Drawing.Size(1446, 194);
             this.panel3.TabIndex = 2;
             // 
+            // btn_clear_crosshairs
+            // 
+            this.btn_clear_crosshairs.Location = new System.Drawing.Point(1091, 10);
+            this.btn_clear_crosshairs.Name = "btn_clear_crosshairs";
+            this.btn_clear_crosshairs.Size = new System.Drawing.Size(135, 56);
+            this.btn_clear_crosshairs.TabIndex = 22;
+            this.btn_clear_crosshairs.Text = "Clear Crosshairs";
+            this.btn_clear_crosshairs.UseVisualStyleBackColor = true;
+            this.btn_clear_crosshairs.Click += new System.EventHandler(this.btn_clear_crosshairs_Click);
+            // 
             // chkbx_zoom_Y_Axis
             // 
             this.chkbx_zoom_Y_Axis.AutoSize = true;
-            this.chkbx_zoom_Y_Axis.Location = new System.Drawing.Point(1091, 41);
+            this.chkbx_zoom_Y_Axis.Location = new System.Drawing.Point(1091, 88);
             this.chkbx_zoom_Y_Axis.Name = "chkbx_zoom_Y_Axis";
             this.chkbx_zoom_Y_Axis.Size = new System.Drawing.Size(125, 24);
             this.chkbx_zoom_Y_Axis.TabIndex = 21;
@@ -549,6 +575,7 @@ namespace myHeatingViewer
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tab_chart.ResumeLayout(false);
+            this.tab_chart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMain)).EndInit();
             this.tab_settings.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -609,6 +636,8 @@ namespace myHeatingViewer
         private System.Windows.Forms.Button btn_saveChart;
         private System.Windows.Forms.Button btn_resetZoom;
         private System.Windows.Forms.CheckBox chkbx_zoom_Y_Axis;
+        private System.Windows.Forms.Label lblCrossHair;
+        private System.Windows.Forms.Button btn_clear_crosshairs;
     }
 }
 

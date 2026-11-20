@@ -85,7 +85,7 @@ namespace myHeatingViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Goldenrod")]
+        [global::System.Configuration.DefaultSettingValueAttribute("LightBlue")]
         public global::System.Drawing.Color ThermostatColour {
             get {
                 return ((global::System.Drawing.Color)(this["ThermostatColour"]));

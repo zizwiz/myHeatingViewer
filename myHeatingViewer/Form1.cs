@@ -17,7 +17,9 @@ namespace myHeatingViewer
         private FolderService _folderService = new FolderService();
         private CsvDataService _csvService = new CsvDataService();
         private ChartService _chartService;
-        // private SettingsService _settingsService;
+
+        private bool _isRightDragging; //For Cross hairs starts as false
+        private ToolTip tooltip;
 
         private readonly DataContext _context = new DataContext();
 
@@ -33,7 +35,7 @@ namespace myHeatingViewer
 
             _chartService.ConfigureChart(chartMain);
 
-            
+
 
         }
 
@@ -226,7 +228,7 @@ namespace myHeatingViewer
             if (nextSunrise.HasValue)
                 DayNightShading.AddNightShading(sunset.Value, nextSunrise.Value, chartMain);
 
-            
+
 
 
 
@@ -524,7 +526,7 @@ namespace myHeatingViewer
                         }
 
                         chartMain.SaveImage(dialog.FileName, format);
-                       
+
                         MsgBox.Show("Chart saved successfully", "Success", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
@@ -569,6 +571,66 @@ namespace myHeatingViewer
         private void chkbx_zoom_Y_Axis_CheckedChanged(object sender, EventArgs e)
         {
             ChartService.EnableYAxisZoom(chartMain, chkbx_zoom_Y_Axis);
+        }
+
+        private void chartMain_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right)
+                return;
+
+            _isRightDragging = true;
+
+            MoveCrossHair(e.Location);
+        }
+
+        private void chartMain_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!_isRightDragging)
+                return;
+            
+            MoveCrossHair(e.Location);
+        }
+
+        private void chartMain_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right)
+                return;
+
+            _isRightDragging = false;
+        }
+
+        private void MoveCrossHair(Point location)
+        {
+            ChartArea area = chartMain.ChartAreas[0];
+
+            try
+            {
+                double x = area.AxisX.PixelPositionToValue(location.X);
+                double y = area.AxisY.PixelPositionToValue(location.Y);
+
+                area.CursorX.SetCursorPosition(x);
+                area.CursorY.SetCursorPosition(y);
+
+                DateTime dt = DateTime.FromOADate(x);
+
+                lblCrossHair.Text =
+                    dt.ToString("dd/MM/yyyy HH:mm:ss")
+                    + "  "
+                    + y.ToString("F2");
+            }
+            catch
+            {
+            }
+        }
+
+        private void btn_clear_crosshairs_Click(object sender, EventArgs e)
+        {
+            ChartArea area = chartMain.ChartAreas[0];
+
+            area.CursorX.SetCursorPosition(double.NaN);
+            area.CursorY.SetCursorPosition(double.NaN);
+
+            chartMain.Invalidate();
         }
     }
 }

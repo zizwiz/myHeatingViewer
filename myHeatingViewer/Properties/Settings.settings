@@ -18,7 +18,7 @@
       <Value Profile="(Default)">Magenta</Value>
     </Setting>
     <Setting Name="ThermostatColour" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Goldenrod</Value>
+      <Value Profile="(Default)">LightBlue</Value>
     </Setting>
     <Setting Name="SetTempColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DarkRed</Value>

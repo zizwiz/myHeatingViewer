@@ -51,7 +51,7 @@ namespace myHeatingViewer.Services
             area.AxisY.MajorGrid.LineColor =
                 Color.LightGray;
 
-
+            //// Zoom section
             area.CursorX.IsUserEnabled = true;
             area.CursorX.IsUserSelectionEnabled = true;
 
@@ -62,6 +62,21 @@ namespace myHeatingViewer.Services
             area.AxisX.ScrollBar.IsPositionedInside = true;
 
             area.AxisX.ScaleView.SizeType = DateTimeIntervalType.Hours;
+
+            //// Cross hairs section
+            area.CursorX.LineColor = Color.Red;
+            area.CursorX.LineWidth = 1;
+            area.CursorX.LineDashStyle =
+                ChartDashStyle.Dash;
+
+            area.CursorY.LineColor = Color.Red;
+            area.CursorY.LineWidth = 1;
+            area.CursorY.LineDashStyle =
+                ChartDashStyle.Dash;
+
+            //Now hide cross hairs until they are needed
+            area.CursorX.SetCursorPosition(double.NaN);
+            area.CursorY.SetCursorPosition(double.NaN);
         }
 
         public static void EnableYAxisZoom(Chart chart, CheckBox myCheckBox)
@@ -165,20 +180,42 @@ namespace myHeatingViewer.Services
         #region Temperature
 
 
-        private void DrawTemperature(
-            Chart chart,
-            string sensor)
+        private void DrawTemperature(Chart chart, string sensor)
         {
+            Color myColor = Color.Empty;
+
             var records =
                 _csvService.GetTemperatureForDay(
                     _context.DataRoot,
                     _context.SelectedDate,
                     sensor);
 
+            switch (sensor)
+            {
+                case "Gallery":
+                    myColor = _context.GalleryColour;
+                    break;
+                case "Middle":
+                    myColor = _context.MiddleColour;
+                    break;
+                case "Outside":
+                    myColor = _context.OutsideColour;
+                    break;
+                case "Sanctuary":
+                    myColor = _context.SanctuaryColour;
+                    break;
+                case "Thermostat":
+                    myColor = _context.ThermostatColour;
+                    break;
+                default:
+                    myColor = Color.Black;
+                    break;
+            }
+
             Series series =
                     CreateSeries(
                         sensor,
-                        _context.ThermostatColour);
+                        myColor);
 
             foreach (TemperatureRecord record in records)
             {
